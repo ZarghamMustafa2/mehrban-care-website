@@ -188,6 +188,9 @@ export function Footer() {
             <Link href="/about" className="hover:text-gold-400 transition-colors">
               {isUrdu ? "خدمت کے ضوابط" : "Care Standards"}
             </Link>
+            <Link href="/privacy" className="hover:text-gold-400 transition-colors">
+              {isUrdu ? "رازداری پالیسی" : "Privacy Policy"}
+            </Link>
             <Link href="/faq" className="hover:text-gold-400 transition-colors">
               {isUrdu ? "عمومی سوالات" : "FAQ"}
             </Link>

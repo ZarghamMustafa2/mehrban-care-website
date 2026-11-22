@@ -7,6 +7,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
+    "/services/daily-care",
+    "/services/hygiene-care",
+    "/services/home-nursing",
+    "/services/monitoring",
+    "/services/doctor-visits",
+    "/services/physiotherapy",
+    "/services/live-in-care",
+    "/services/overseas-support",
     "/care-plans",
     "/overseas-families",
     "/how-it-works",
@@ -14,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/contact",
     "/book-care",
+    "/privacy",
   ];
 
   return routes.map((route) => ({

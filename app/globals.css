@@ -77,6 +77,24 @@
     background-color: #CDA05F;
     color: #FFFFFF;
   }
+
+  /* Accessible keyboard focus states (WCAG 2.2 AA) */
+  :focus-visible {
+    outline: 2px solid #CDA05F;
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion preference support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer utilities {
