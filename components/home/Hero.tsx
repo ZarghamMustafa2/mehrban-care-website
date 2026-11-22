@@ -40,19 +40,18 @@ export function Hero() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight leading-[1.15] text-balance">
               {isUrdu ? (
                 <span>
-                  آپ کے پیارے گھر کے سکون میں{" "}
+                  جن کا وجود{" "}
                   <span className="text-gold-500 font-bold underline decoration-gold-300 underline-offset-8">
-                    بہترین دیکھ بھال
-                  </span>{" "}
-                  کے حقدار ہیں۔
+                    سب سے انمول ہے
+                  </span>
+                  ، ان کی باوقار اور پرخلوص دیکھ بھال۔
                 </span>
               ) : (
                 <span>
-                  Your Loved Ones Deserve the{" "}
+                  Compassionate Care for the{" "}
                   <span className="text-gold-500 font-extrabold italic font-serif">
-                    Best Care
-                  </span>{" "}
-                  at Home.
+                    Ones Who Matter Most.
+                  </span>
                 </span>
               )}
             </h1>
@@ -65,10 +64,10 @@ export function Hero() {
             {/* Call to Actions */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
-                href="/book-care"
+                href="#care-finder"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-navy-900 text-cream-100 font-bold text-base shadow-soft-md hover:bg-navy-800 hover:shadow-soft-lg transition-all duration-300 group border border-navy-700"
               >
-                <CalendarCheck className="w-5 h-5 text-gold-400" />
+                <Sparkles className="w-5 h-5 text-gold-400" />
                 <span>{t("hero_cta_primary")}</span>
                 <ArrowIcon className="w-4 h-4 text-gold-400 transition-transform group-hover:translate-x-1" />
               </Link>

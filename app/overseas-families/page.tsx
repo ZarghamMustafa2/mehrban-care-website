@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -19,11 +19,70 @@ import {
   Smartphone,
   Eye,
   AlertTriangle,
+  Send,
+  Video,
+  UserCheck,
+  FileText,
+  Activity,
 } from "lucide-react";
 
 export default function OverseasFamiliesPage() {
   const { isUrdu, t } = useLanguage();
   const ArrowIcon = isUrdu ? ArrowLeft : ArrowRight;
+  const [activeStage, setActiveStage] = useState<number>(0);
+
+  const arrangementStages = [
+    {
+      num: "01",
+      icon: Send,
+      titleEn: "Care Inquiry",
+      titleUr: "ابتدائی نگہداشت استفسار",
+      descEn: "Submit your family's initial requirements online or message directly on WhatsApp with your local time zone (UK, Gulf, USA, Canada).",
+      descUr: "ہماری ویب سائٹ یا واٹس ایپ کے ذریعے رابطہ کریں۔ ہم آپ کے ملکی ٹائم زون (برطانیہ، خلیج، کینیڈا، امریکہ) کو مدنظر رکھ کر رابطہ کرتے ہیں۔",
+      actionEn: "We review senior city, mobility status, and your preferred schedule within 4 hours.",
+      actionUr: "ہمارا ایڈوائزر 4 گھنٹوں میں بزرگ کی رہائش، نقل و حرکت اور مطلوبہ اوقات کا جائزہ لیتا ہے۔"
+    },
+    {
+      num: "02",
+      icon: Video,
+      titleEn: "Family Consultation",
+      titleUr: "خاندانی ویڈیو مشاورت",
+      descEn: "A dedicated Care Coordinator arranges a video conference with you and local family members to listen to doctor instructions and daily habits.",
+      descUr: "ایک خصوصی کیئر کوآرڈینیٹر آپ اور مقامی خاندان کے ساتھ ویڈیو کال پر گفتگو کر کے ڈاکٹر کی ہدایات اور بزرگ کے مزاج کو سمجھتا ہے۔",
+      actionEn: "We draft an individual Care Protocol covering dietary rhythms, prayer accompaniment, and vitals checkups.",
+      actionUr: "ہم ایک انفرادی کیئر پروٹوکول تیار کرتے ہیں جس میں کھانے، نماز اور ادویات کا شیڈول طے ہوتا ہے۔"
+    },
+    {
+      num: "03",
+      icon: UserCheck,
+      titleEn: "Caregiver Arrangement",
+      titleUr: "تصدیق شدہ کیئر گیور کی تعیناتی",
+      descEn: "We match a vetted male or female caregiver whose background, dialect, and experience align with your parents' dignity and household privacy.",
+      descUr: "ہم نادرا اور پولیس سے مکمل تصدیق شدہ کیئر گیور کا انتخاب کرتے ہیں جو پردے کے آداب اور بزرگ کے وقار کا پاس رکھے۔",
+      actionEn: "A supervisor conducts an introductory home accompaniment visit on Day 1 to ensure peace of mind.",
+      actionUr: "پہلے دن سپروائزر بزرگ کے گھر پر موجود رہتا ہے تاکہ مانوس ماحول اور باہمی اعتماد قائم ہو سکے۔"
+    },
+    {
+      num: "04",
+      icon: MessageCircle,
+      titleEn: "Visit Updates",
+      titleUr: "ہر وزٹ پر واٹس ایپ رپورٹ",
+      descEn: "After each care shift, you receive a transparent WhatsApp summary with resting vitals (BP, glucose), meal status, and daily observations.",
+      descUr: "ہر شفٹ کے بعد آپ کو واٹس ایپ پر بلڈ پریشر، شوگر، خوراک اور بزرگ کے مزاج کی شفاف سمری موصول ہوتی ہے۔",
+      actionEn: "Zero guesswork: you always know exactly how your parents spent their day.",
+      actionUr: "مکمل ذہنی سکون: آپ کو ہمیشہ علم ہوتا ہے کہ والدین نے دن کیسا گزارا۔"
+    },
+    {
+      num: "05",
+      icon: Heart,
+      titleEn: "Ongoing Communication",
+      titleUr: "مسلسل رابطہ و خاندانی تسلی",
+      descEn: "Continuous supervisor check-ins, monthly routine adjustments, and facilitating WhatsApp video calls with grandchildren whenever you call.",
+      descUr: "ماہانہ سپروائزری جائزہ، معمولات میں ضرورت کے مطابق تبدیلی، اور بچوں و پوتوں کے ساتھ ویڈیو کال پر بات چیت کی سہولت۔",
+      actionEn: "Direct emergency escalation protocols and priority standby coverage.",
+      actionUr: "ہنگامی پروٹوکول اور متبادل عملے کی باقاعدہ فراہمی۔"
+    }
+  ];
 
   const overseasConcerns = [
     {
@@ -124,7 +183,7 @@ export default function OverseasFamiliesPage() {
                   className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gold-400 text-navy-900 font-bold text-sm shadow-soft-md hover:bg-gold-500 transition-colors"
                 >
                   <CalendarCheck className="w-4 h-4 text-navy-900" />
-                  <span>{isUrdu ? "اوورسیز نگہداشت جائزہ بک کریں" : "Book Overseas Family Assessment"}</span>
+                  <span>{isUrdu ? "والدین کی دیکھ بھال پر بات چیت کریں" : "Discuss Care for Your Parents"}</span>
                   <ArrowIcon className="w-4 h-4" />
                 </Link>
 
@@ -201,37 +260,102 @@ export default function OverseasFamiliesPage() {
         </div>
       </section>
 
-      {/* How We Bridge The Miles */}
+      {/* How Overseas Families Arrange Care — Interactive 5-Stage Visual Journey */}
       <section className="py-16 lg:py-24 bg-white border-y border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
-              {isUrdu ? "ہمارا اوورسیز سسٹم" : "Our Coordination Architecture"}
+              {isUrdu ? "نگہداشت کا 5 مرحلہ وار سفر" : "How Care Is Arranged From Abroad"}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900">
-              {isUrdu ? "ہم ہزاروں میل کے فاصلے کو کیسے مٹاتے ہیں؟" : "How Mehrban Care Connects You to Home"}
+              {isUrdu ? "پردیس سے والدین کی دیکھ بھال شروع کرنے کا عملی طریقہ کار" : "5 Seamless Stages to Bridge the Miles"}
             </h2>
+            <p className="text-sm text-navy-600 max-w-2xl mx-auto">
+              {isUrdu
+                ? "ہم نے اوورسیز فیملیز کے لیے رابطہ اور نگرانی کا ایسا نظام وضع کیا ہے جو فاصلوں کے باوجود ہر لمحہ آپ کو مطمئن رکھے۔"
+                : "A step-by-step coordination framework specifically designed around the communication needs of Pakistani families living in the UK, Gulf, North America, and beyond."}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {overseasPillars.map((pillar, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-cream-50/70 border border-navy-900/5 flex items-start gap-6 hover:bg-white hover:shadow-soft-md transition-all"
-              >
-                <span className="text-2xl font-black text-gold-500 font-serif flex-shrink-0">
-                  {pillar.step}
-                </span>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-navy-900">
-                    {pillar.title}
+          {/* Interactive Stepper Navigation */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+            {arrangementStages.map((stg, idx) => {
+              const isSelected = activeStage === idx;
+              const Icon = stg.icon;
+              return (
+                <button
+                  key={stg.num}
+                  type="button"
+                  onClick={() => setActiveStage(idx)}
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all ${
+                    isSelected
+                      ? "bg-navy-900 text-white shadow-soft-sm ring-2 ring-gold-400"
+                      : "bg-cream-100 text-navy-700 hover:bg-gold-50 hover:text-navy-900"
+                  }`}
+                >
+                  <span className="w-5 h-5 rounded-full bg-gold-400 text-navy-900 flex items-center justify-center text-[10px] font-black">
+                    {stg.num}
+                  </span>
+                  <span>{isUrdu ? stg.titleUr : stg.titleEn}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Stage Detailed Spotlight Box */}
+          <div className="rounded-3xl bg-cream-50/80 border border-navy-900/10 p-8 sm:p-12 max-w-4xl mx-auto shadow-soft-sm space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200/70 pb-4">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center shadow-soft-sm flex-shrink-0">
+                  {React.createElement(arrangementStages[activeStage].icon, { className: "w-7 h-7" })}
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-gold-600 uppercase tracking-wider">
+                    {isUrdu ? `مرحلہ ${arrangementStages[activeStage].num}` : `Stage ${arrangementStages[activeStage].num}`}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-navy-900">
+                    {isUrdu ? arrangementStages[activeStage].titleUr : arrangementStages[activeStage].titleEn}
                   </h3>
-                  <p className="text-sm text-navy-600 leading-relaxed">
-                    {pillar.desc}
-                  </p>
                 </div>
               </div>
-            ))}
+
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gold-100 text-gold-800 self-start sm:self-auto">
+                {isUrdu ? "عملی خاکہ" : "Illustrative Framework"}
+              </span>
+            </div>
+
+            <p className="text-base text-navy-700 leading-relaxed">
+              {isUrdu ? arrangementStages[activeStage].descUr : arrangementStages[activeStage].descEn}
+            </p>
+
+            <div className="p-4 rounded-2xl bg-white border border-navy-900/5 flex items-start gap-3 text-xs sm:text-sm text-navy-800 shadow-soft-2xs">
+              <CheckCircle2 className="w-5 h-5 text-sage-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="block text-navy-900 mb-0.5">
+                  {isUrdu ? "پاکستان میں ہماری کارروائی:" : "Action by Our Local Team in Pakistan:"}
+                </strong>
+                <span>{isUrdu ? arrangementStages[activeStage].actionUr : arrangementStages[activeStage].actionEn}</span>
+              </div>
+            </div>
+
+            {/* Stepper controls */}
+            <div className="pt-2 flex items-center justify-between border-t border-gray-200/70">
+              <button
+                type="button"
+                onClick={() => setActiveStage((prev) => (prev > 0 ? prev - 1 : arrangementStages.length - 1))}
+                className="text-xs font-bold text-navy-600 hover:text-navy-900"
+              >
+                {isUrdu ? "← پچھلا مرحلہ" : "← Previous Stage"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveStage((prev) => (prev < arrangementStages.length - 1 ? prev + 1 : 0))}
+                className="text-xs font-bold text-gold-700 hover:text-navy-900"
+              >
+                {isUrdu ? "اگلا مرحلہ →" : "Next Stage →"}
+              </button>
+            </div>
           </div>
         </div>
       </section>

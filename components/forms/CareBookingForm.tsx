@@ -22,6 +22,7 @@ import {
   Calendar,
   Sparkles,
   FileCheck,
+  Copy,
 } from "lucide-react";
 
 interface CareBookingFormProps {
@@ -72,6 +73,7 @@ export function CareBookingForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submittedData, setSubmittedData] = useState<any | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const planParam = searchParams.get("plan");
@@ -222,14 +224,41 @@ export function CareBookingForm({
           </div>
         </div>
 
-        <div className="pt-2">
+        {/* Explicit Backend Status Notice */}
+        <div className="p-3.5 rounded-xl bg-gold-50 border border-gold-200 text-xs text-navy-800 text-left rtl:text-right max-w-xl mx-auto">
+          <p className="font-semibold text-gold-800 mb-1">
+            {isUrdu ? "فیز 1 ٹیسٹنگ کی وضاحت:" : "Phase 1 Operational Notice:"}
+          </p>
+          <p className="leading-relaxed">
+            {isUrdu
+              ? "آن لائن خودکار ڈیٹا بیس انٹیک فیز 2 میں فعال ہوگا۔ آپ کے کوائف کا اسکرین پر جائزہ لیا گیا ہے اور کسی سرور پر ڈیٹا خودکار طور پر منتقل نہیں کیا گیا۔"
+              : "Online automated cloud database submission is awaiting Phase 2 backend activation. Your details have been verified locally on this screen and no medical or personal data has been transmitted."}
+          </p>
+        </div>
+
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              if (!submittedData) return;
+              const text = `Mehrban Care In-Home Assessment Summary:\nClient: ${submittedData.fullName} (${submittedData.relationship})\nPhone: ${submittedData.phone} | WhatsApp: ${submittedData.whatsapp}\nService: ${submittedData.service}\nSenior: ${submittedData.seniorGender}, ${submittedData.seniorAgeGroup} yrs, Mobility: ${submittedData.mobility}\nLocation: ${submittedData.city} (${submittedData.area})\nDuration: ${submittedData.duration}\nStart Date: ${submittedData.startDate}\nShift: ${submittedData.shiftTime}`;
+              navigator.clipboard?.writeText(text);
+              setCopied(true);
+              setTimeout(() => setCopied(false), 3000);
+            }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold-400 text-navy-900 font-bold text-xs hover:bg-gold-500 transition-colors shadow-soft-xs"
+          >
+            {copied ? <Check className="w-4 h-4 text-navy-900" /> : <Copy className="w-4 h-4 text-navy-900" />}
+            <span>{copied ? (isUrdu ? "خلاصہ کاپی ہو گیا!" : "Summary Copied!") : (isUrdu ? "درخواست کا خلاصہ کاپی کریں" : "Copy Assessment Summary")}</span>
+          </button>
+
           <button
             type="button"
             onClick={() => {
               setSubmittedData(null);
               setCurrentStep(1);
             }}
-            className="px-8 py-3.5 rounded-full bg-navy-900 text-white font-bold text-xs hover:bg-navy-800 transition-colors shadow-soft-sm"
+            className="px-6 py-3 rounded-full bg-navy-900 text-white font-bold text-xs hover:bg-navy-800 transition-colors shadow-soft-sm"
           >
             {isUrdu ? "ایک اور استفسار فارم شروع کریں" : "Start New Assessment Form"}
           </button>

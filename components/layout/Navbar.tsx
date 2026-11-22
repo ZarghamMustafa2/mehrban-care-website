@@ -23,6 +23,8 @@ export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,15 +34,27 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile drawer on route change
+  // Close mobile drawer and dropdown on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setDesktopServicesOpen(false);
   }, [pathname]);
+
+  const serviceItems = [
+    { slug: "daily-care", titleEn: "Daily Living & Companionship", titleUr: "روزمرہ معمولات و رفاقت", badge: "Daily" },
+    { slug: "hygiene-care", titleEn: "Personal Hygiene Assistance", titleUr: "ذاتی صفائی اور طہارت", badge: "Care" },
+    { slug: "home-nursing", titleEn: "Home Nursing Support", titleUr: "گھریلو نرسنگ سروسز", badge: "Clinical" },
+    { slug: "monitoring", titleEn: "Vitals & Sugar Monitoring", titleUr: "بلڈ پریشر و شوگر چیک", badge: "Health" },
+    { slug: "doctor-visits", titleEn: "Doctor Visit Accompaniment", titleUr: "ڈاکٹر وزٹ میں معاونت", badge: "Visit" },
+    { slug: "physiotherapy", titleEn: "Physiotherapy Coordination", titleUr: "فزیو تھراپی کوآرڈینیشن", badge: "Rehab" },
+    { slug: "live-in-care", titleEn: "Full-Day & 24/7 Live-In Care", titleUr: "ہمہ وقتی لائیو ان دیکھ بھال", badge: "24/7" },
+    { slug: "overseas-support", titleEn: "Overseas Family Coordination", titleUr: "بیرون ملک فیملی کوآرڈینیشن", badge: "Expat" },
+  ];
 
   const navLinks = [
     { href: "/", label: t("nav_home") },
     { href: "/about", label: t("nav_about") },
-    { href: "/services", label: t("nav_services") },
+    { href: "/services", label: t("nav_services"), isServices: true },
     { href: "/care-plans", label: t("nav_care_plans") },
     { href: "/overseas-families", label: t("nav_overseas") },
     { href: "/how-it-works", label: t("nav_how_it_works") },
@@ -126,7 +140,79 @@ export function Navbar() {
             {/* Desktop Navigation Links */}
             <nav className="hidden xl:flex items-center gap-1 2xl:gap-2" aria-label="Main Navigation">
               {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive = pathname === link.href || (link.isServices && pathname.startsWith("/services"));
+
+                if (link.isServices) {
+                  return (
+                    <div
+                      key={link.href}
+                      className="relative"
+                      onMouseEnter={() => setDesktopServicesOpen(true)}
+                      onMouseLeave={() => setDesktopServicesOpen(false)}
+                    >
+                      <Link
+                        href="/services"
+                        className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 ${
+                          isActive
+                            ? "text-navy-900 bg-navy-900/5 font-bold"
+                            : "text-navy-700 hover:text-navy-900 hover:bg-gold-400/10"
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${desktopServicesOpen ? "rotate-180 text-gold-600" : "text-navy-400"}`} />
+                      </Link>
+
+                      {/* Dropdown Menu */}
+                      {desktopServicesOpen && (
+                        <div className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-1 w-[480px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-soft-xl border border-navy-900/10 p-4 z-50 animate-fadeIn">
+                          <div className="px-3 pb-2 mb-2 border-b border-gray-100 flex items-center justify-between">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-navy-400">
+                              {isUrdu ? "گھریلو دیکھ بھال کی خدمات" : "Specialized In-Home Care Services"}
+                            </span>
+                            <span className="text-[10px] text-gold-600 font-semibold">
+                              {isUrdu ? "8 اہم شعبہ جات" : "8 Key Offerings"}
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-2">
+                            {serviceItems.map((s) => (
+                              <Link
+                                key={s.slug}
+                                href={`/services/${s.slug}`}
+                                className="p-2.5 rounded-xl hover:bg-gold-50/70 border border-transparent hover:border-gold-300/40 transition-all text-left rtl:text-right group flex items-start gap-2"
+                              >
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-navy-100 text-navy-800 uppercase mt-0.5 group-hover:bg-navy-900 group-hover:text-gold-300 transition-colors">
+                                  {s.badge}
+                                </span>
+                                <div className="space-y-0.5">
+                                  <h4 className="text-xs font-bold text-navy-900 group-hover:text-gold-700 transition-colors leading-tight">
+                                    {isUrdu ? s.titleUr : s.titleEn}
+                                  </h4>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+
+                          <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
+                            <Link
+                              href="/services"
+                              className="font-bold text-navy-900 hover:text-gold-600 transition-colors"
+                            >
+                              {isUrdu ? "تمام 8 خدمات کی تفصیلی فہرست دیکھیں ←" : "Browse Full Services Directory →"}
+                            </Link>
+                            <Link
+                              href="/book-care"
+                              className="text-[11px] font-semibold text-gold-600 hover:text-navy-900 transition-colors"
+                            >
+                              {isUrdu ? "جائزہ بک کریں" : "Book Assessment"}
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.href}
@@ -202,7 +288,54 @@ export function Navbar() {
               </div>
 
               {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive = pathname === link.href || (link.isServices && pathname.startsWith("/services"));
+
+                if (link.isServices) {
+                  return (
+                    <div key={link.href} className="space-y-1">
+                      <div className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all text-navy-900 hover:bg-gold-50">
+                        <Link href="/services" className="flex-1">
+                          {link.label}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                          className="p-1.5 rounded-lg text-navy-600 hover:bg-navy-100"
+                          aria-label={mobileServicesOpen ? "Close services list" : "Open services list"}
+                        >
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileServicesOpen ? "rotate-180 text-gold-600" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      {/* Expandable Mobile Services Submenu */}
+                      {mobileServicesOpen && (
+                        <div className="pl-4 rtl:pl-0 rtl:pr-4 py-1 space-y-1 border-l-2 rtl:border-l-0 rtl:border-r-2 border-gold-300 ml-4 rtl:ml-0 rtl:mr-4">
+                          {serviceItems.map((s) => (
+                            <Link
+                              key={s.slug}
+                              href={`/services/${s.slug}`}
+                              className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-navy-800 hover:bg-gold-50/60"
+                            >
+                              <span>{isUrdu ? s.titleUr : s.titleEn}</span>
+                              <span className="text-[10px] text-gold-600 font-bold">{s.badge}</span>
+                            </Link>
+                          ))}
+                          <Link
+                            href="/services"
+                            className="block px-3 py-1.5 text-xs font-bold text-gold-600 hover:text-navy-900"
+                          >
+                            {isUrdu ? "تمام 8 خدمات دیکھیں ←" : "View All Services →"}
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.href}

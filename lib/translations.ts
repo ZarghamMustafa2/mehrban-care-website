@@ -68,16 +68,16 @@ export const translations: Record<string, TranslationItem> = {
     ur: "پاکستانی بزرگوں کے لیے باوقار گھریلو دیکھ بھال",
   },
   hero_headline: {
-    en: "Your Loved Ones Deserve the Best Care at Home.",
-    ur: "آپ کے پیارے گھر کے سکون میں بہترین دیکھ بھال کے حقدار ہیں۔",
+    en: "Compassionate Care for the Ones Who Matter Most.",
+    ur: "جن کا وجود سب سے انمول ہے، ان کی باوقار اور پرخلوص دیکھ بھال۔",
   },
   hero_subheadline: {
-    en: "Compassionate elderly care, personalized support, and peace of mind for families who want the very best for their loved ones.",
-    ur: "ہمدردانہ گھریلو دیکھ بھال، انفرادی توجہ، اور اُن تمام خاندانوں کے لیے دلی اطمینان جو اپنے بزرگوں کے لیے صرف بہترین چاہتے ہیں۔",
+    en: "Professional elderly home-care assistance designed to bring comfort, dignity, and peace of mind to your family.",
+    ur: "پیشہ ورانہ گھریلو نگہداشت جو آپ کے خاندان کے لیے سکون، وقار اور مکمل ذہنی اطمینان لائے۔",
   },
   hero_cta_primary: {
-    en: "Book a Care Assessment",
-    ur: "نگہداشت جائزہ بک کریں",
+    en: "Find the Right Care",
+    ur: "مناسب دیکھ بھال تلاش کریں",
   },
   hero_cta_secondary: {
     en: "Explore Our Services",

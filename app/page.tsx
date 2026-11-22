@@ -1,6 +1,7 @@
 import React from "react";
 import { Hero } from "@/components/home/Hero";
 import { TrustIntro } from "@/components/home/TrustIntro";
+import { SmartCareFinder } from "@/components/home/SmartCareFinder";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { HowItWorksSteps } from "@/components/home/HowItWorksSteps";
@@ -14,6 +15,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustIntro />
+      <SmartCareFinder />
       <ServicesSection />
       <WhyChooseUs />
       <HowItWorksSteps />
