@@ -78,10 +78,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
       {/* Card Footer with Details link */}
       <div className="px-6 pb-6 pt-2">
         <Link
-          href={`/services#${service.slug}`}
+          href={`/services/${service.slug}`}
           className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-navy-50 text-navy-900 font-semibold text-xs hover:bg-gold-400 hover:text-navy-900 transition-colors group/btn"
         >
-          <span>{isUrdu ? "تفصیلات دیکھیں" : "Explore Service Details"}</span>
+          <span>{isUrdu ? "مکمل تفصیلات ملاحظہ کریں" : "View Full Service Details"}</span>
           <ArrowIcon className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5" />
         </Link>
       </div>

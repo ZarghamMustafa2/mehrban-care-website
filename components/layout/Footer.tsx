@@ -19,14 +19,14 @@ export function Footer() {
   const { isUrdu, t, lang, setLanguage } = useLanguage();
 
   const servicesList = [
-    { title: t("service_1_title"), href: "/services#daily-care" },
-    { title: t("service_2_title"), href: "/services#hygiene-care" },
-    { title: t("service_3_title"), href: "/services#home-nursing" },
-    { title: t("service_4_title"), href: "/services#monitoring" },
-    { title: t("service_5_title"), href: "/services#doctor-visit" },
-    { title: t("service_6_title"), href: "/services#physiotherapy" },
-    { title: t("service_7_title"), href: "/services#live-in-care" },
-    { title: t("service_8_title"), href: "/services#overseas-support" },
+    { title: t("service_1_title"), href: "/services/daily-care" },
+    { title: t("service_2_title"), href: "/services/hygiene-care" },
+    { title: t("service_3_title"), href: "/services/home-nursing" },
+    { title: t("service_4_title"), href: "/services/monitoring" },
+    { title: t("service_5_title"), href: "/services/doctor-visits" },
+    { title: t("service_6_title"), href: "/services/physiotherapy" },
+    { title: t("service_7_title"), href: "/services/live-in-care" },
+    { title: t("service_8_title"), href: "/services/overseas-support" },
   ];
 
   const quickLinks = [

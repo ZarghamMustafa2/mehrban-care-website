@@ -155,8 +155,102 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Cultural Reverence & Visual Storytelling Section */}
       <section className="py-16 lg:py-24 bg-white border-y border-navy-900/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* Visual Photographic Frame (5 cols) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-md lg:max-w-none">
+                <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-gold-300 via-sage-300 to-navy-200 opacity-50 blur-lg transform -rotate-1 pointer-events-none" />
+                <div className="relative rounded-[2.2rem] overflow-hidden bg-navy-950 shadow-soft-xl border-4 border-white aspect-[4/5]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=85"
+                    alt="Elderly Pakistani parent and dedicated caregiver sharing a warm, respectful conversation at home"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 480px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/20 to-transparent" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/50 text-navy-900 shadow-soft-md">
+                    <p className="text-xs font-bold text-navy-900 flex items-center gap-1.5 mb-1">
+                      <Heart className="w-4 h-4 text-gold-600 fill-gold-400" />
+                      <span>{isUrdu ? "بزرگوں کی خدمت، ایک مقدس فریضہ" : "Elder Care as a Sacred Honor"}</span>
+                    </p>
+                    <p className="text-[11px] text-navy-600 leading-snug">
+                      {isUrdu
+                        ? "ہمارے بزرگ ہمارے گھروں کی برکت اور پہچان ہیں۔ ان کا احترام ہر خدمت کی بنیاد ہے۔"
+                        : "Preserving comfort, prayer routines, and family honor within the senior's own domestic sanctuary."}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Editorial Storytelling (7 cols) */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left rtl:lg:text-right">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+                <span>{isUrdu ? "ہماری سوچ اور فلسفہ" : "Our Care Philosophy"}</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight">
+                {isUrdu
+                  ? "گھر کا مانوس ماحول اور باوقار زندگی کا تحفظ"
+                  : "Preserving Independence in the Familiar Comfort of Home"}
+              </h2>
+
+              <p className="text-base text-navy-700 leading-relaxed">
+                {isUrdu
+                  ? "پاکستانی معاشرے میں والدین اور بزرگ گھرانوں کی رونق اور سر کا تاج ہوتے ہیں۔ بڑھتی ہوئی عمر یا بیماری کے باعث جب روزمرہ کاموں میں مدد کی ضرورت پیش آتی ہے تو انہیں کسی پر بوجھ محسوس نہیں ہونا چاہیے۔"
+                  : "In Pakistani culture, our parents and elders are the anchor of our families. When age or mobility challenges arise, they deserve compassionate support that celebrates their wisdom rather than limiting their dignity."}
+              </p>
+
+              <div className="space-y-4 pt-2 text-left rtl:text-right">
+                <div className="p-4 rounded-2xl bg-cream-50 border border-navy-900/5 space-y-1">
+                  <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-gold-600 flex-shrink-0" />
+                    <span>{isUrdu ? "گھریلو رازداری اور اسلامی پردے کا تقدس" : "Privacy & Cultural Reverence"}</span>
+                  </h3>
+                  <p className="text-xs text-navy-600 leading-relaxed pl-6 rtl:pl-0 rtl:pr-6">
+                    {isUrdu
+                      ? "ہماری نگہداشت کار خواتین اور مرد مکمل طور پر گھریلو اقدار، پردے کے آداب اور دینی معمولات کا احترام کرتے ہیں۔"
+                      : "Strict segregation of male and female staffing ensures senior mothers and fathers feel utterly at ease in their private space."}
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-cream-50 border border-navy-900/5 space-y-1">
+                  <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-sage-600 flex-shrink-0" />
+                    <span>{isUrdu ? "روزمرہ نماز اور خوراک کا باقاعدہ اہتمام" : "Prayer Times & Daily Rhythms"}</span>
+                  </h3>
+                  <p className="text-xs text-navy-600 leading-relaxed pl-6 rtl:pl-0 rtl:pr-6">
+                    {isUrdu
+                      ? "وضو میں احتیاط سے مدد، باجماعت نماز کی تیاری، اور وقت پر تازہ غذا و پانی کا تسلسل۔"
+                      : "Assisting with gentle ablution, accompanying indoor prayer routines, and ensuring nutritious, timely meals."}
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-cream-50 border border-navy-900/5 space-y-1">
+                  <h3 className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-navy-700 flex-shrink-0" />
+                    <span>{isUrdu ? "پردیس میں مقیم بچوں کے لیے شفاف رابطہ" : "Connecting Overseas Sons & Daughters"}</span>
+                  </h3>
+                  <p className="text-xs text-navy-600 leading-relaxed pl-6 rtl:pl-0 rtl:pr-6">
+                    {isUrdu
+                      ? "ہر وزٹ پر واٹس ایپ رپورٹنگ تاکہ سات سمندر پار بیٹھے بچے ہر لمحہ مطمئن رہ سکیں۔"
+                      : "Comprehensive visit briefings that bridge miles and bring immense relief to children living across the world."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-16 lg:py-24 bg-cream-100 border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-gold-600">

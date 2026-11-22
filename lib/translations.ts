@@ -551,6 +551,96 @@ export const translations: Record<string, TranslationItem> = {
     en: "Phase 1 Preview: Form validation is active. Live database submission connects in Phase 2 backend integration.",
     ur: "فیز 1 پیش منظر: فارم کی جانچ پڑتال فعال ہے۔ ڈیٹا بیس کا براہِ راست رابطہ فیز 2 میں قائم ہوگا۔",
   },
+
+  // Multi-Step Wizard Keys
+  wizard_step_1: {
+    en: "Personal Details",
+    ur: "ذاتی کوائف",
+  },
+  wizard_step_2: {
+    en: "Required Care Service",
+    ur: "مطلوبہ سروس اور ترجیحات",
+  },
+  wizard_step_3: {
+    en: "Location & Schedule",
+    ur: "مقام اور شیڈول",
+  },
+  wizard_step_4: {
+    en: "Review Information",
+    ur: "جائزہ اور تصدیق",
+  },
+  wizard_btn_next: {
+    en: "Continue to Next Step",
+    ur: "اگلے مرحلے پر جائیں",
+  },
+  wizard_btn_back: {
+    en: "Back to Previous Step",
+    ur: "پچھلے مرحلے پر واپس جائیں",
+  },
+  wizard_btn_confirm: {
+    en: "Confirm & Verify Request",
+    ur: "درخواست کی تصدیق کریں",
+  },
+  wizard_relationship: {
+    en: "Your Relationship to the Senior",
+    ur: "بزرگ کے ساتھ آپ کا رشتہ",
+  },
+  wizard_mobility_level: {
+    en: "Senior's Current Mobility Level",
+    ur: "بزرگ کی چلنے پھرنے کی موجودہ حالت",
+  },
+  wizard_caregiver_pref: {
+    en: "Caregiver Gender Preference",
+    ur: "نگہداشت کار کی مطلوبہ جنس",
+  },
+  wizard_address_area: {
+    en: "Town / Sector / Residential Area",
+    ur: "رہائشی علاقہ / ٹاؤن / سیکٹر",
+  },
+  wizard_shift_time: {
+    en: "Preferred Daily Shift Timing",
+    ur: "مطلوبہ روزمرہ اوقات (شفٹ)",
+  },
+  wizard_review_notice: {
+    en: "Please review the details below. In Phase 1, our frontend validation verifies all required fields. Online database synchronization will activate in Phase 2.",
+    ur: "براہ کرم درج ذیل تفصیلات کا جائزہ لیں۔ فیز 1 میں فرنٹ اینڈ جانچ پڑتال تمام خانوں کی تصدیق کرتی ہے۔ آن لائن ڈیٹا بیس کا باقاعدہ رابطہ فیز 2 میں چالو ہوگا۔",
+  },
+
+  // Mobile Bottom Action Bar
+  mobile_cta_call: {
+    en: "Call Advisor",
+    ur: "مشیر سے رابطہ",
+  },
+  mobile_cta_book: {
+    en: "Book Care",
+    ur: "کیئر بک کریں",
+  },
+  mobile_cta_whatsapp: {
+    en: "WhatsApp",
+    ur: "واٹس ایپ",
+  },
+
+  // General Interactive UI
+  btn_back_to_top: {
+    en: "Back to top",
+    ur: "اوپر جائیں",
+  },
+  services_filter_all: {
+    en: "All Services",
+    ur: "تمام خدمات",
+  },
+  services_filter_daily: {
+    en: "Daily Living & Companionship",
+    ur: "روزمرہ معمولات و رفاقت",
+  },
+  services_filter_clinical: {
+    en: "Health & Nursing Oversight",
+    ur: "طبی و نرسنگ معاونت",
+  },
+  services_filter_specialized: {
+    en: "Specialized & 24/7 Live-In",
+    ur: "ہمہ وقتی اور اوورسیز سہولت",
+  },
 };
 
 export type TranslationKey = keyof typeof translations;

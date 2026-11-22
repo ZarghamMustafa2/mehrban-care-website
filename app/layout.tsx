@@ -3,6 +3,8 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileBottomBar } from "@/components/ui/MobileBottomBar";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -111,8 +113,10 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-cream-100 text-navy-900 selection:bg-gold-400 selection:text-white antialiased">
         <LanguageProvider>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pb-16 md:pb-0">{children}</main>
           <Footer />
+          <MobileBottomBar />
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>

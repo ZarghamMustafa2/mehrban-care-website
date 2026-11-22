@@ -35,6 +35,17 @@
     letter-spacing: 0 !important;
   }
 
+  [dir="rtl"] span,
+  [dir="rtl"] a,
+  [dir="rtl"] button,
+  [dir="rtl"] input,
+  [dir="rtl"] select,
+  [dir="rtl"] textarea,
+  [dir="rtl"] label {
+    font-family: var(--font-urdu), 'Segoe UI', sans-serif;
+    letter-spacing: 0 !important;
+  }
+
   [dir="rtl"] h1,
   [dir="rtl"] h2,
   [dir="rtl"] h3,
