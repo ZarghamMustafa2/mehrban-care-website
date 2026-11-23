@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -13,6 +12,7 @@ import {
   ArrowRight,
   ArrowLeft,
   Clock,
+  CheckCircle2,
 } from "lucide-react";
 
 export function Hero() {
@@ -70,7 +70,7 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg md:text-xl text-navy-700/90 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               {t("hero_subheadline")}
@@ -80,7 +80,7 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
               className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
               <Link
@@ -96,11 +96,11 @@ export function Hero() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-navy-900 font-semibold text-base border border-navy-900/15 shadow-soft-sm hover:bg-gold-50 hover:border-gold-400 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
                 <CalendarCheck className="w-5 h-5 text-gold-600" />
-                <span>{isUrdu ? "مشاورت بک کریں" : "Book Free Consultation"}</span>
+                <span>{t("hero_cta_secondary")}</span>
               </Link>
             </motion.div>
 
-            {/* Trust Points */}
+            {/* Truthful Trust Points (Updated per Task 9) */}
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -113,10 +113,10 @@ export function Hero() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-navy-900">
-                    {isUrdu ? "مکمل تصدیق شدہ" : "Vetted Caregivers"}
+                    {isUrdu ? "جانچ شدہ نگہداشت کار" : "Caregiver Screening"}
                   </h4>
                   <p className="text-[11px] text-navy-600">
-                    {isUrdu ? "شناختی اور حوالہ جانچ" : "Police & reference check"}
+                    {isUrdu ? "شناختی اور حوالہ جاتی تصدیق" : "Identity & background vetting"}
                   </p>
                 </div>
               </div>
@@ -127,10 +127,10 @@ export function Hero() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-navy-900">
-                    {isUrdu ? "باوقار معاونت" : "Dignified Care"}
+                    {isUrdu ? "باوقار معاونت" : "Dignified Assistance"}
                   </h4>
                   <p className="text-[11px] text-navy-600">
-                    {isUrdu ? "مرد و خواتین عملہ" : "Male & female staff"}
+                    {isUrdu ? "روایات اور اقدار کا احترام" : "Respectful domestic care"}
                   </p>
                 </div>
               </div>
@@ -141,63 +141,125 @@ export function Hero() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-navy-900">
-                    {isUrdu ? "مسلسل اپ ڈیٹس" : "Family Updates"}
+                    {isUrdu ? "خاندانی رابطہ" : "Family Coordination"}
                   </h4>
                   <p className="text-[11px] text-navy-600">
-                    {isUrdu ? "واٹس ایپ سمری" : "Transparent visit reports"}
+                    {isUrdu ? "باقاعدہ دیکھ بھال کی تفصیل" : "Routine visit communication"}
                   </p>
                 </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Cinematic Hero Photography (Col 8 to 12) */}
+          {/* Minimalist Editorial Care Process Panel (Col 8 to 12) */}
           <motion.div
-            initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Outer Decorative Glow & Borders */}
-              <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-gold-300 via-sage-300 to-navy-200 opacity-60 blur-md transform -rotate-1 pointer-events-none" />
-              
-              <div className="relative rounded-[2.2rem] overflow-hidden bg-white shadow-soft-xl border-4 border-white aspect-[4/5] group">
-                <Image
-                  src="https://images.unsplash.com/photo-1727179299533-c5fd6092851c?auto=format&fit=crop&w=1200&q=85"
-                  alt="Pakistani elderly mother supported with compassion and respect in a serene home setting"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+            <div className="relative rounded-3xl bg-white/95 backdrop-blur-md p-6 sm:p-8 border border-navy-900/10 shadow-soft-xl space-y-6">
+              {/* Top Label & Badge */}
+              <div className="flex items-center justify-between border-b border-navy-900/10 pb-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-gold-500 animate-pulse" />
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-navy-800">
+                    {isUrdu ? "دیکھ بھال کا منظم طریقہ کار" : "Care Process Protocol"}
+                  </span>
+                </div>
+                <span className="text-[11px] font-semibold text-gold-700 bg-gold-400/15 px-2.5 py-0.5 rounded-full border border-gold-400/30">
+                  {isUrdu ? "۳ آسان مراحل" : "3 Guided Steps"}
+                </span>
+              </div>
 
-                {/* Soft gradient bottom overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent" />
-
-                {/* Floating Reassurance Card */}
+              {/* 3 Care Process Steps */}
+              <div className="space-y-4">
+                {/* Step 01 */}
                 <motion.div
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-soft-lg"
+                  initial={{ opacity: 0, x: shouldReduceMotion ? 0 : (isUrdu ? -15 : 15) }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="group p-4 rounded-2xl bg-cream-50/70 border border-navy-900/5 hover:border-gold-300 hover:bg-gold-50/40 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-full bg-gold-400/20 border border-gold-400 flex items-center justify-center flex-shrink-0 text-gold-700">
-                      <Heart className="w-6 h-6 fill-gold-400 text-gold-500" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-navy-900">
-                        {isUrdu ? "خاندان کا باہمی اعتماد" : "Compassion & Family Respect"}
-                      </p>
-                      <p className="text-[11px] text-navy-600">
+                  <div className="flex items-start gap-3.5">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-xl bg-gold-500/15 border border-gold-500/30 text-gold-700 font-extrabold text-xs flex items-center justify-center font-mono">
+                      01
+                    </span>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-navy-900">
+                        {isUrdu ? "ضروریات کا فہم و جائزہ" : "Understand Your Needs"}
+                      </h4>
+                      <p className="text-xs text-navy-600 leading-relaxed">
                         {isUrdu
-                          ? "محبت، احترام اور پردے کے اصولوں پر مبنی خدمت"
-                          : "Cultural sensitivity, prayer routines & personal dignity"}
+                          ? "ہم آپ کے بزرگوں کے معمولات، طبی کیفیات اور انفرادی ضروریات کو تفصیل سے سمجھتے ہیں۔"
+                          : "We listen attentively to daily routines, medical history, and specific daily assistance requirements."}
                       </p>
                     </div>
                   </div>
                 </motion.div>
+
+                {/* Step 02 */}
+                <motion.div
+                  initial={{ opacity: 0, x: shouldReduceMotion ? 0 : (isUrdu ? -15 : 15) }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="group p-4 rounded-2xl bg-cream-50/70 border border-navy-900/5 hover:border-sage-300 hover:bg-sage-50/40 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-3.5">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-xl bg-sage-500/15 border border-sage-500/30 text-sage-700 font-extrabold text-xs flex items-center justify-center font-mono">
+                      02
+                    </span>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-navy-900">
+                        {isUrdu ? "منظم اور ذاتی منصوبہ بندی" : "Plan Personalized Care"}
+                      </h4>
+                      <p className="text-xs text-navy-600 leading-relaxed">
+                        {isUrdu
+                          ? "تربیت یافتہ اور جانچے گئے نگہداشت کار کے ساتھ انفرادی شیڈول اور معاونت کا انتخاب۔"
+                          : "Matching compassionate, verified attendants or nurses customized to your loved one's pace."}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Step 03 */}
+                <motion.div
+                  initial={{ opacity: 0, x: shouldReduceMotion ? 0 : (isUrdu ? -15 : 15) }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                  className="group p-4 rounded-2xl bg-cream-50/70 border border-navy-900/5 hover:border-navy-300 hover:bg-navy-50/40 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-3.5">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-xl bg-navy-500/15 border border-navy-500/30 text-navy-800 font-extrabold text-xs flex items-center justify-center font-mono">
+                      03
+                    </span>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-navy-900">
+                        {isUrdu ? "مسلسل رابطہ اور باخبر رہنا" : "Stay Connected"}
+                      </h4>
+                      <p className="text-xs text-navy-600 leading-relaxed">
+                        {isUrdu
+                          ? "باقاعدہ رپورٹس اور شفاف مواصلت تاکہ اندرون و بیرون ملک اہل خانہ مطمئن رہیں۔"
+                          : "Transparent communication and regular updates ensuring peace of mind, locally or abroad."}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Bottom reassuring note with link to full How It Works */}
+              <div className="pt-2 flex items-center justify-between text-[11px] text-navy-600 border-t border-navy-900/5">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sage-600" />
+                  {isUrdu ? "لاہور اور ملحقہ علاقوں میں سروس" : "Service across Lahore"}
+                </span>
+                <Link
+                  href="/how-it-works"
+                  className="text-navy-900 font-bold hover:text-gold-600 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>{isUrdu ? "مکمل طریقہ کار دیکھیں" : "View Full Process"}</span>
+                  <ArrowIcon className="w-3 h-3 text-gold-500" />
+                </Link>
               </div>
             </div>
           </motion.div>

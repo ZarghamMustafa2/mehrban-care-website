@@ -13,11 +13,11 @@ import {
   Phone,
   Globe,
   ChevronDown,
-  HeartHandshake,
   CalendarCheck,
-  ShieldCheck,
   ArrowRight,
   ArrowLeft,
+  HelpCircle,
+  FileText,
 } from "lucide-react";
 
 export function Navbar() {
@@ -53,15 +53,14 @@ export function Navbar() {
     { slug: "overseas-support", titleEn: "Overseas Family Coordination", titleUr: "بیرون ملک فیملی کوآرڈینیشن", badge: "Expat" },
   ];
 
+  // Refined 7-Item Navigation Bar (Task 4)
   const navLinks = [
     { href: "/", label: t("nav_home") },
     { href: "/about", label: t("nav_about") },
     { href: "/services", label: t("nav_services"), isServices: true },
     { href: "/care-plans", label: t("nav_care_plans") },
     { href: "/overseas-families", label: t("nav_overseas") },
-    { href: "/how-it-works", label: t("nav_how_it_works") },
     { href: "/careers", label: t("nav_careers") },
-    { href: "/faq", label: t("nav_faq") },
     { href: "/contact", label: t("nav_contact") },
   ];
 
@@ -74,18 +73,18 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
-            <span className="font-medium text-cream-200">
+            <span className="font-medium text-cream-200 text-[11px] sm:text-xs">
               {isUrdu
                 ? `پاکستان میں بزرگوں کی باوقار گھریلو دیکھ بھال • ${businessConfig.coverage.availabilityNoticeUr}`
                 : `Compassionate Elderly Care at Home • ${businessConfig.coverage.availabilityNoticeEn}`}
             </span>
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4 sm:gap-5">
             {/* Direct Inquiry hotline info */}
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 text-cream-200 hover:text-gold-400 transition-colors"
+              className="hidden md:inline-flex items-center gap-1.5 text-cream-200 hover:text-gold-400 transition-colors text-xs"
             >
               <Phone className="w-3.5 h-3.5 text-gold-400" />
               <span>{isUrdu ? "نگہداشت مشیر سے رابطہ" : "Inquiry Line: Contact Advisors"}</span>
@@ -93,7 +92,7 @@ export function Navbar() {
 
             {/* Language Switcher */}
             <div className="flex items-center gap-1 bg-navy-950/70 px-2 py-0.5 rounded-full border border-navy-700/60">
-              <Globe className="w-3.5 h-3.5 text-gold-400 mr-1" />
+              <Globe className="w-3.5 h-3.5 text-gold-400 mr-0.5" />
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
@@ -129,7 +128,7 @@ export function Navbar() {
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "glass-header shadow-soft-md py-3"
-            : "bg-cream-100/95 py-4 border-b border-navy-900/5"
+            : "bg-cream-100/95 py-3.5 border-b border-navy-900/5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,8 +138,8 @@ export function Navbar() {
               <Logo size="md" />
             </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-1 2xl:gap-2" aria-label="Main Navigation">
+            {/* Desktop Navigation Links (Responsive on lg & above) */}
+            <nav className="hidden lg:flex items-center gap-1 lg:gap-1.5 xl:gap-2" aria-label="Main Navigation">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.isServices && pathname.startsWith("/services"));
 
@@ -172,7 +171,7 @@ export function Navbar() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 6, scale: 0.98 }}
                             transition={{ duration: 0.18, ease: "easeOut" }}
-                            className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-1 w-[480px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-soft-xl border border-navy-900/10 p-4 z-50"
+                            className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-1 w-[500px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-soft-xl border border-navy-900/10 p-4 z-50"
                           >
                             <div className="px-3 pb-2 mb-2 border-b border-gray-100 flex items-center justify-between">
                               <span className="text-[11px] font-bold uppercase tracking-wider text-navy-400">
@@ -202,18 +201,32 @@ export function Navbar() {
                               ))}
                             </div>
 
+                            {/* Accessible Menu Sub-Links for How It Works and FAQ (Task 4) */}
                             <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
+                              <div className="flex items-center gap-3">
+                                <Link
+                                  href="/how-it-works"
+                                  className="text-[11px] font-semibold text-navy-700 hover:text-gold-600 transition-colors flex items-center gap-1"
+                                >
+                                  <FileText className="w-3.5 h-3.5 text-gold-500" />
+                                  <span>{isUrdu ? "طریقہ کار" : "How It Works"}</span>
+                                </Link>
+                                <span className="text-gray-300">|</span>
+                                <Link
+                                  href="/faq"
+                                  className="text-[11px] font-semibold text-navy-700 hover:text-gold-600 transition-colors flex items-center gap-1"
+                                >
+                                  <HelpCircle className="w-3.5 h-3.5 text-gold-500" />
+                                  <span>{isUrdu ? "عام سوالات" : "FAQs"}</span>
+                                </Link>
+                              </div>
+
                               <Link
                                 href="/services"
-                                className="font-bold text-navy-900 hover:text-gold-600 transition-colors"
+                                className="font-bold text-navy-900 hover:text-gold-600 transition-colors text-[11px] inline-flex items-center gap-1"
                               >
-                                {isUrdu ? "تمام 8 خدمات کی تفصیلی فہرست دیکھیں ←" : "Browse Full Services Directory →"}
-                              </Link>
-                              <Link
-                                href="/book-care"
-                                className="text-[11px] font-semibold text-gold-600 hover:text-navy-900 transition-colors"
-                              >
-                                {isUrdu ? "جائزہ بک کریں" : "Book Assessment"}
+                                <span>{isUrdu ? "مکمل فہرست" : "All Services"}</span>
+                                <ArrowIcon className="w-3 h-3 text-gold-500" />
                               </Link>
                             </div>
                           </motion.div>
@@ -254,7 +267,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="xl:hidden p-2.5 rounded-xl text-navy-900 hover:bg-navy-900/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+                className="lg:hidden p-2.5 rounded-xl text-navy-900 hover:bg-navy-900/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
               >
@@ -276,7 +289,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="xl:hidden fixed inset-x-0 top-[calc(100%+1px)] bottom-0 bg-white/95 backdrop-blur-xl border-t border-navy-900/10 z-40 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between"
+              className="lg:hidden fixed inset-x-0 top-[calc(100%+1px)] bottom-0 bg-white/95 backdrop-blur-xl border-t border-navy-900/10 z-40 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between"
             >
               <div className="space-y-1">
                 <div className="pb-3 mb-3 border-b border-gray-100 flex items-center justify-between">
@@ -368,6 +381,33 @@ export function Navbar() {
                     </Link>
                   );
                 })}
+
+                {/* Additional Essential Guides (How it Works & FAQ) in Mobile Menu */}
+                <div className="pt-3 mt-2 border-t border-gray-100 space-y-1">
+                  <span className="px-4 text-[11px] font-bold uppercase tracking-wider text-navy-400">
+                    {isUrdu ? "رہنمائی اور معلومات" : "Helpful Guides"}
+                  </span>
+                  <Link
+                    href="/how-it-works"
+                    className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-navy-800 hover:bg-gold-50"
+                  >
+                    <span className="flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-gold-500" />
+                      {isUrdu ? "طریقہ کار (How It Works)" : "How Care Works"}
+                    </span>
+                    <ArrowIcon className="w-3.5 h-3.5 text-navy-400" />
+                  </Link>
+                  <Link
+                    href="/faq"
+                    className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-navy-800 hover:bg-gold-50"
+                  >
+                    <span className="flex items-center gap-2">
+                      <HelpCircle className="w-4 h-4 text-gold-500" />
+                      {isUrdu ? "اکثر پوچھے گئے سوالات (FAQ)" : "Frequently Asked Questions"}
+                    </span>
+                    <ArrowIcon className="w-3.5 h-3.5 text-navy-400" />
+                  </Link>
+                </div>
               </div>
 
               {/* Bottom Mobile Drawer CTA */}

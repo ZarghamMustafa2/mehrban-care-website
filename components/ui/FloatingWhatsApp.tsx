@@ -25,10 +25,10 @@ export function FloatingWhatsApp() {
 
   return (
     <>
-      {/* Floating Action Button */}
+      {/* Floating Action Button - Positioned on corner clear of hero content & mobile bottom bar */}
       <aside
         aria-label={isUrdu ? "فوری رابطہ و رہنمائی" : "Quick In-Home Care Inquiries"}
-        className="fixed bottom-20 md:bottom-8 left-5 rtl:left-auto rtl:right-5 z-40 flex items-center print:hidden"
+        className="fixed bottom-24 md:bottom-8 right-5 md:right-8 rtl:right-auto rtl:left-5 rtl:md:left-8 z-40 flex items-center print:hidden"
       >
         {isConfigured && whatsappUrl ? (
           <a
