@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { businessConfig } from "@/lib/config/business";
 import {
   CalendarCheck,
   CheckCircle2,
@@ -23,6 +24,7 @@ import {
   Sparkles,
   FileCheck,
   Copy,
+  MessageCircle,
 } from "lucide-react";
 
 interface CareBookingFormProps {
@@ -237,6 +239,23 @@ export function CareBookingForm({
         </div>
 
         <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+          {/* User-controlled non-sensitive WhatsApp handoff if verified number exists */}
+          {businessConfig.contact.whatsapp.isVerified && businessConfig.contact.whatsapp.number && (
+            <a
+              href={`https://wa.me/${businessConfig.contact.whatsapp.number.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+                isUrdu
+                  ? `السلام علیکم مہربان کیئر، میں ${submittedData?.city} میں ${submittedData?.service} کے لیے نگہداشت کی خدمات پر بات کرنا چاہتا/چاہتی ہوں۔ شیڈول: ${submittedData?.duration}۔ برائے مہربانی رہنمائی فرمائیں۔`
+                  : `Hello Mehrban Care, I would like to inquire about ${submittedData?.service} in ${submittedData?.city}. Preferred schedule: ${submittedData?.duration}. Please guide me on next steps.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-bold text-xs hover:bg-[#1EBE5D] transition-colors shadow-soft-xs"
+            >
+              <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
+              <span>{isUrdu ? "واٹس ایپ پر خلاصہ بھیجیں" : "Send Inquiry via WhatsApp"}</span>
+            </a>
+          )}
+
           <button
             type="button"
             onClick={() => {
@@ -551,13 +570,14 @@ export function CareBookingForm({
                   onChange={(e) => setCity(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
                 >
-                  <option value="Lahore">Lahore (لاہور) — Inquiries Active</option>
-                  <option value="Islamabad">Islamabad (اسلام آباد) — Inquiries Active</option>
-                  <option value="Rawalpindi">Rawalpindi (راولپنڈی) — Inquiries Active</option>
-                  <option value="Multan">Multan (ملتان) — Inquiries Active</option>
-                  <option value="Faisalabad">Faisalabad (فیصل آباد) — Inquiries Active</option>
-                  <option value="Karachi">Karachi (کراچی) — Inquiries Active</option>
-                  <option value="Other">Other Pakistani City — Contact to Confirm</option>
+                  {businessConfig.coverage.cities.map((c) => (
+                    <option key={c.id} value={c.nameEn}>
+                      {c.nameEn} ({c.nameUr}) — {isUrdu ? c.badgeUr : c.badgeEn}
+                    </option>
+                  ))}
+                  <option value="Other">
+                    {isUrdu ? "دیگر پاکستانی شہر — تصدیق کے لیے رابطہ کریں" : "Other Pakistani City — Contact to Confirm"}
+                  </option>
                 </select>
               </div>
 

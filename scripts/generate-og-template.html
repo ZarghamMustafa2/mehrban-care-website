@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mehrban Care OpenGraph</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #17324D 0%, #0F2032 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 80px;
+      position: relative;
+    }
+    .glow-gold {
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: #CDA05F;
+      opacity: 0.18;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+    .glow-sage {
+      position: absolute;
+      bottom: -120px;
+      left: -120px;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: #7FA58B;
+      opacity: 0.18;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      z-index: 10;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: #CDA05F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(205, 160, 95, 0.35);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-en {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+    }
+    .brand-ur {
+      font-size: 19px;
+      font-weight: 700;
+      color: #CDA05F;
+      margin-top: -2px;
+    }
+    .country-pill {
+      display: flex;
+      align-items: center;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(205, 160, 95, 0.15);
+      border: 1px solid rgba(205, 160, 95, 0.4);
+      color: #CDA05F;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .main-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 1020px;
+      z-index: 10;
+    }
+    .eyebrow {
+      color: #CDA05F;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #F8F6F1;
+      letter-spacing: -0.02em;
+    }
+    .subline {
+      font-size: 23px;
+      line-height: 1.45;
+      color: #BAC8D3;
+      font-weight: 400;
+    }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 24px;
+      z-index: 10;
+    }
+    .badges {
+      display: flex;
+      gap: 28px;
+    }
+    .badge-gold {
+      font-size: 15px;
+      font-weight: 700;
+      color: #CDA05F;
+    }
+    .badge-sage {
+      font-size: 15px;
+      font-weight: 700;
+      color: #7FA58B;
+    }
+    .badge-white {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .url {
+      font-size: 16px;
+      font-weight: 800;
+      color: #CDA05F;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-gold"></div>
+  <div class="glow-sage"></div>
+
+  <div class="header">
+    <div class="brand-wrap">
+      <div class="brand-logo">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#17324D" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-en">MEHRBAN CARE</span>
+        <span class="brand-ur">مہربان کیئر — بزرگوں کی باوقار دیکھ بھال</span>
+      </div>
+    </div>
+    <div class="country-pill">PAKISTAN</div>
+  </div>
+
+  <div class="main-body">
+    <div class="eyebrow">COMPASSION • DIGNITY • TRUST • PEACE OF MIND</div>
+    <div class="headline">Because Your Loved Ones Deserve the Best Care.</div>
+    <div class="subline">Dignified in-home elderly care, assisted personal hygiene, health monitoring, and peace of mind for local and overseas Pakistani families.</div>
+  </div>
+
+  <div class="footer">
+    <div class="badges">
+      <span class="badge-gold">✓ Biometrically Vetted Staff</span>
+      <span class="badge-sage">✓ Modest Gender Matching</span>
+      <span class="badge-white">✓ WhatsApp Overseas Debriefs</span>
+    </div>
+    <span class="url">mehrban-care.vercel.app</span>
+  </div>
+</body>
+</html>

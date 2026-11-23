@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { Logo } from "@/components/brand/Logo";
+import { businessConfig } from "@/lib/config/business";
 import {
   Menu,
   X,
@@ -74,8 +75,8 @@ export function Navbar() {
             <span className="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
             <span className="font-medium text-cream-200">
               {isUrdu
-                ? "پاکستان میں بزرگوں کی باوقار گھریلو دیکھ بھال • سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں"
-                : "Compassionate Elderly Care at Home • Contact Us to Confirm Service Availability"}
+                ? `پاکستان میں بزرگوں کی باوقار گھریلو دیکھ بھال • ${businessConfig.coverage.availabilityNoticeUr}`
+                : `Compassionate Elderly Care at Home • ${businessConfig.coverage.availabilityNoticeEn}`}
             </span>
           </div>
 

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { businessConfig } from "@/lib/config/business";
 import { CalendarCheck, Phone, ArrowRight, ArrowLeft, Heart, Shield } from "lucide-react";
 
 export function FinalCta() {
@@ -57,8 +58,8 @@ export function FinalCta() {
               <Shield className="w-4 h-4 text-gold-400" />
               <span>
                 {isUrdu
-                  ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں (لاہور، اسلام آباد/راولپنڈی، ملتان)"
-                  : "Contact Us to Confirm Service Availability (Inquiries in Lahore, Islamabad/Rawalpindi & Multan)"}
+                  ? businessConfig.coverage.availabilityNoticeUr
+                  : businessConfig.coverage.availabilityNoticeEn}
               </span>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Logo } from "@/components/brand/Logo";
+import { businessConfig } from "@/lib/config/business";
 import {
   Phone,
   Mail,
@@ -61,16 +62,16 @@ export function Footer() {
                 <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <span>
                   {isUrdu
-                    ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں (لاہور، اسلام آباد / راولپنڈی، ملتان)"
-                    : "Contact Us to Confirm Service Availability (Lahore, Islamabad / Rawalpindi & Multan)"}
+                    ? businessConfig.coverage.availabilityNoticeUr
+                    : businessConfig.coverage.availabilityNoticeEn}
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-gold-400 flex-shrink-0" />
                 <span>
                   {isUrdu
-                    ? "نگہداشت کوآرڈینیشن: صبح 8 بجے تا شام 8 بجے (پیر تا ہفتہ)"
-                    : "Care Inquiries: 8:00 AM – 8:00 PM (Mon – Sat)"}
+                    ? `نگہداشت مشاورت: ${businessConfig.contact.businessHours.hoursUr} (${businessConfig.contact.businessHours.daysUr})`
+                    : `Care Inquiries: ${businessConfig.contact.businessHours.hoursEn} (${businessConfig.contact.businessHours.daysEn})`}
                 </span>
               </div>
             </div>

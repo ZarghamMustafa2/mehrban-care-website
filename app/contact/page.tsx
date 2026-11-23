@@ -3,6 +3,7 @@
 import React, { Suspense } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CareBookingForm } from "@/components/forms/CareBookingForm";
+import { businessConfig, getWhatsAppInquiryUrl } from "@/lib/config/business";
 import {
   Phone,
   Mail,
@@ -11,6 +12,8 @@ import {
   Sparkles,
   MessageCircle,
   ShieldCheck,
+  Building2,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -51,6 +54,7 @@ export default function ContactPage() {
               </h3>
 
               <div className="space-y-5 text-sm">
+                {/* Phone Channel */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-gold-100 text-gold-700 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5" />
@@ -59,15 +63,27 @@ export default function ContactPage() {
                     <span className="text-xs font-bold uppercase tracking-wider text-navy-400 block">
                       {isUrdu ? "نگہداشت ہیلپ لائن" : "Advisory Inquiry Hotline"}
                     </span>
-                    <span className="font-bold text-navy-900 text-base mt-0.5 block">
-                      {isUrdu ? "لاہور و اسلام آباد کیئر ایڈوائزر" : "Lahore & Islamabad Direct Line"}
-                    </span>
+                    {businessConfig.contact.phone.isVerified && businessConfig.contact.phone.raw ? (
+                      <a
+                        href={`tel:${businessConfig.contact.phone.raw}`}
+                        className="font-bold text-navy-900 text-base mt-0.5 block hover:text-gold-600 transition-colors"
+                      >
+                        {businessConfig.contact.phone.display}
+                      </a>
+                    ) : (
+                      <span className="font-semibold text-navy-900 text-sm mt-0.5 block">
+                        {isUrdu ? "آن لائن استفسار و مشاورت فعال ہے" : "Online Consultation & Intake Active"}
+                      </span>
+                    )}
                     <span className="text-xs text-navy-600 block mt-0.5">
-                      {isUrdu ? "صبح 8:00 بجے تا شام 8:00 بجے (پیر تا ہفتہ)" : "8:00 AM – 8:00 PM (Mon – Sat)"}
+                      {isUrdu
+                        ? `${businessConfig.contact.businessHours.hoursUr} (${businessConfig.contact.businessHours.daysUr})`
+                        : `${businessConfig.contact.businessHours.hoursEn} (${businessConfig.contact.businessHours.daysEn})`}
                     </span>
                   </div>
                 </div>
 
+                {/* WhatsApp Channel */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center flex-shrink-0">
                     <MessageCircle className="w-5 h-5" />
@@ -76,15 +92,51 @@ export default function ContactPage() {
                     <span className="text-xs font-bold uppercase tracking-wider text-navy-400 block">
                       {isUrdu ? "واٹس ایپ برائے اوورسیز فیملیز" : "WhatsApp for Overseas Families"}
                     </span>
-                    <span className="font-semibold text-navy-900 text-sm mt-0.5 block">
-                      {isUrdu ? "برطانیہ، خلیج و نارتھ امریکہ سے رابطہ" : "UK, Gulf, US & Worldwide Inquiries"}
-                    </span>
+                    {businessConfig.contact.whatsapp.isVerified && businessConfig.contact.whatsapp.number ? (
+                      <a
+                        href={getWhatsAppInquiryUrl("general", isUrdu ? "ur" : "en") || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-sage-700 text-sm mt-0.5 block hover:underline"
+                      >
+                        {businessConfig.contact.whatsapp.display} (Direct Chat)
+                      </a>
+                    ) : (
+                      <span className="font-semibold text-navy-900 text-sm mt-0.5 block">
+                        {isUrdu ? "برطانیہ، خلیج و نارتھ امریکہ سے رابطہ" : "UK, Gulf, US & Worldwide Inquiries"}
+                      </span>
+                    )}
                     <span className="text-xs text-navy-600 block mt-0.5">
-                      {isUrdu ? "آن لائن استفسار پر فوری جواب" : "Quick response on submitted requests"}
+                      {isUrdu ? "فارم جمع کروانے پر فوری رابطہ" : "Quick response on submitted requests"}
                     </span>
                   </div>
                 </div>
 
+                {/* Email Channel */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-cream-200 text-navy-800 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-navy-400 block">
+                      {isUrdu ? "سرکاری ای میل ایڈریس" : "Corporate Email Address"}
+                    </span>
+                    {businessConfig.contact.email.isVerified && businessConfig.contact.email.address ? (
+                      <a
+                        href={`mailto:${businessConfig.contact.email.address}`}
+                        className="font-semibold text-navy-900 text-sm mt-0.5 block hover:text-gold-600 transition-colors"
+                      >
+                        {businessConfig.contact.email.address}
+                      </a>
+                    ) : (
+                      <span className="text-xs text-navy-600 block mt-0.5 italic">
+                        {isUrdu ? businessConfig.contact.email.statusNoticeUr : businessConfig.contact.email.statusNoticeEn}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Service Availability */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-navy-100 text-navy-800 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5" />
@@ -97,8 +149,25 @@ export default function ContactPage() {
                       {isUrdu ? "لاہور، اسلام آباد / راولپنڈی اور ملتان" : "Lahore, Islamabad / Rawalpindi & Multan"}
                     </span>
                     <span className="text-xs text-navy-600 block mt-0.5">
-                      {isUrdu ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں" : "Contact us to confirm service availability"}
+                      {isUrdu ? businessConfig.coverage.availabilityNoticeUr : businessConfig.coverage.availabilityNoticeEn}
                     </span>
+                  </div>
+                </div>
+
+                {/* Honest Physical Location Protocol Notice */}
+                <div className="flex items-start gap-4 pt-2 border-t border-gray-100">
+                  <div className="w-10 h-10 rounded-xl bg-gold-50 text-gold-700 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-navy-400 block">
+                      {isUrdu ? "گھریلو وزٹ کا طریقہ کار" : "In-Home Assessment Protocol"}
+                    </span>
+                    <p className="text-xs text-navy-600 mt-0.5 leading-relaxed">
+                      {isUrdu
+                        ? businessConfig.contact.officeAddress.displayNoticeUr
+                        : businessConfig.contact.officeAddress.displayNoticeEn}
+                    </p>
                   </div>
                 </div>
               </div>

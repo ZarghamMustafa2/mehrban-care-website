@@ -57,27 +57,54 @@ export default function PrivacyPolicyPage() {
       titleEn: "4. Caregiver Background & Identity Verification Data",
       titleUr: "4. عملے کے تصدیقی کوائف کی قانونی حفاظت",
       contentEn:
-        "For the protection of both clients and staff, Mehrban Care retains verified biometric CNIC records, local police clearance certifications, and past reference files in secure offline and encrypted repositories. Client families are provided verification summaries upon caregiver assignment without exposing personal employee residential addresses.",
+        "For the protection of both clients and staff, Mehrban Care retains verified biometric CNIC records, local police clearance certifications, and past reference files in secure offline repositories. Client families are provided verification summaries upon caregiver assignment without exposing personal employee residential addresses.",
       contentUr:
-        "کلائنٹس اور عملے دونوں کے تحفظ کے لیے، مہربان کیئر نادرا سے تصدیق شدہ شناختی کوائف، متعلقہ تھانے کے پولیس کریکٹر سرٹیفکیٹس اور حوالہ جات کا ریکارڈ مکمل محفوظ اور انکرپٹڈ فارمیٹ میں محفوظ رکھتی ہے۔ فیملیز کو کیئر گیور کی تعیناتی کے وقت باقاعدہ تصدیقی سمری دکھائی جاتی ہے۔",
+        "کلائنٹس اور عملے دونوں کے تحفظ کے لیے، مہربان کیئر نادرا سے تصدیق شدہ شناختی کوائف، متعلقہ تھانے کے پولیس کریکٹر سرٹیفکیٹس اور حوالہ جات کا ریکارڈ محفوظ آف لائن ریکارڈ میں رکھتی ہے۔ فیملیز کو کیئر گیور کی تعیناتی کے وقت باقاعدہ تصدیقی سمری دکھائی جاتی ہے۔",
     },
     {
       id: "communication",
-      titleEn: "5. Structured Family WhatsApp Communication",
-      titleUr: "5. واٹس ایپ فیملی گروپس میں رازداری کے قواعد",
+      titleEn: "5. Structured Family WhatsApp & Contact Communication",
+      titleUr: "5. واٹس ایپ فیملی گروپس اور رابطہ کے قواعد",
       contentEn:
-        "Communication regarding senior updates is conducted strictly through dedicated, end-to-end encrypted family WhatsApp groups or authorized direct calls with our Care Coordinators. Caregivers are instructed never to forward family updates, senior photographs, or medical vitals outside the designated group.",
+        "Communication regarding senior updates is conducted strictly through direct client-authorized channels or family WhatsApp conversations with our Care Coordinators. Contact details provided during inquiries are used solely to assess care needs and coordinate services, never sold or shared with third-party advertisers.",
       contentUr:
-        "والدین کی خیریت کے بارے میں تمام اپ ڈیٹس صرف فیملی کے باضابطہ انکرپٹڈ واٹس ایپ گروپ یا کیئر کوآرڈینیٹر کے ذریعے دی جاتی ہیں۔ عملے کو سختی سے ہدایت ہے کہ گروپ کی کوئی تصویر یا میڈیکل رپورٹ باہر کسی فرد کو فارورڈ نہ کی جائے۔",
+        "والدین کی خیریت کے بارے میں تمام اپ ڈیٹس صرف فیملی کے باضابطہ واٹس ایپ چینل یا کیئر کوآرڈینیٹر کے ذریعے دی جاتی ہیں۔ استفسار کے وقت فراہم کردہ رابطہ نمبرز صرف نگہداشت کے انتظامات کے لیے استعمال ہوتے ہیں اور کسی اشتہاری کمپنی کو نہیں دیے جاتے۔",
+    },
+    {
+      id: "recruitment",
+      titleEn: "6. Caregiver Recruitment & Applicant Data Protection",
+      titleUr: "6. ملازمت کے امیدواروں کے کوائف کی حفاظت",
+      contentEn:
+        "Information submitted by job applicants (such as CNIC details, driving records, nursing diplomas, and contact numbers) is evaluated exclusively by our recruitment supervisors for character verification. Candidate records are never shared externally or repurposed for non-employment matters.",
+      contentUr:
+        "ملازمت کے امیدواروں کے فراہم کردہ کوائف (جیسے شناختی کارڈ، نرسنگ اسناد، رابطہ نمبر) صرف ہماری ریکروٹمنٹ ٹیم کے جائزے اور پولیس تصدیق کے لیے استعمال ہوتے ہیں۔ یہ معلومات ملازمت کے سوا کسی مقصد کے لیے استعمال نہیں کی جاتیں۔",
+    },
+    {
+      id: "cookies",
+      titleEn: "7. Cookies & Web Analytics Transparency",
+      titleUr: "7. کوکیز اور ویب اینالیٹکس کی شفافیت",
+      contentEn:
+        "Mehrban Care does not deploy third-party advertising tracking cookies, cross-site profiling trackers, or invasive data brokers on this website. Standard session storage is utilized purely to preserve your selected language preference (English or Urdu) and local assessment form inputs during your active visit.",
+      contentUr:
+        "مہربان کیئر اس ویب سائٹ پر کسی قسم کی تجارتی ٹریکنگ کوکیز یا اشتہاری ٹریکرز استعمال نہیں کرتی۔ براؤزر کی عارضی میموری صرف زبان کی ترجیح (انگریزی یا اردو) اور فارم کے ڈیٹا کو محفوظ رکھنے کے لیے استعمال ہوتی ہے۔",
     },
     {
       id: "rights",
-      titleEn: "6. Family Rights & Policy Inquiries",
-      titleUr: "6. اہل خانہ کے حقوق اور رازداری سے متعلق رابطہ",
+      titleEn: "8. Family Rights & Policy Inquiries",
+      titleUr: "8. اہل خانہ کے حقوق اور رازداری سے متعلق رابطہ",
       contentEn:
         "Family guardians retain the right to review, update, or request the deletion of recorded home assessment intake notes at any time. If you have questions regarding our domestic confidentiality standards, please contact our administrative advisory office.",
       contentUr:
         "اہل خانہ کو یہ حق حاصل ہے کہ وہ کسی بھی وقت اپنے ریکارڈ شدہ کوائف کا جائزہ لے سکتے ہیں یا ان میں تبدیلی کی درخواست کر سکتے ہیں۔ رازداری کی پالیسی سے متعلق کسی بھی سوال کے لیے آپ ہمارے نگران دفتر سے رابطہ فرما سکتے ہیں۔",
+    },
+    {
+      id: "legal_review",
+      titleEn: "9. Regulatory Review & Legal Notice",
+      titleUr: "9. قانونی و ریگولیٹری جائزے کی وضاحت",
+      contentEn:
+        "This domestic confidentiality policy reflects Mehrban Care's operational standards. Formal corporate governance, medical liability terms, and terms of service remain subject to final review by certified legal counsel in Pakistan prior to full commercial execution.",
+      contentUr:
+        "یہ پالیسی مہربان کیئر کے اخلاقی اور تنظیمی معیارات کی عکاسی کرتی ہے۔ تجارتی سروس کے باضابطہ آغاز سے قبل حتمی قانونی شقیں اور معاہداتی دستاویزات پاکستان کے مستند قانونی ماہرین کے زیرِ جائزہ ہیں۔",
     },
   ];
 

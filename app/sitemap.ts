@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { businessConfig } from "@/lib/config/business";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mehrbancare.pk";
+  const baseUrl = businessConfig.domain.productionUrl;
 
   const routes = [
     "",
