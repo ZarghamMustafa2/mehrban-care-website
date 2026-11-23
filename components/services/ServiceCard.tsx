@@ -29,7 +29,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
   const ArrowIcon = isUrdu ? ArrowLeft : ArrowRight;
 
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden border border-navy-900/5 shadow-soft-sm hover:shadow-soft-lg hover:border-gold-400/40 transition-all duration-300 flex flex-col justify-between">
+    <div className="group relative bg-white rounded-3xl overflow-hidden border border-navy-900/5 shadow-soft-sm hover:shadow-soft-xl hover:border-gold-400/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
       <div>
         {/* Image Container with Soft Gradient Overlay */}
         <div className="relative h-52 w-full overflow-hidden bg-navy-900/10">

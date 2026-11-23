@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion, useReducedMotion } from "framer-motion";
 import { FadeIn, ImageReveal } from "@/components/motion/MotionWrapper";
 import {
   Globe2,
@@ -14,11 +15,13 @@ import {
   ArrowLeft,
   CalendarCheck,
   CheckCircle2,
+  Video,
 } from "lucide-react";
 
 export function OverseasHighlight() {
   const { isUrdu, t } = useLanguage();
   const ArrowIcon = isUrdu ? ArrowLeft : ArrowRight;
+  const shouldReduceMotion = useReducedMotion();
 
   const points = [
     {
@@ -30,14 +33,14 @@ export function OverseasHighlight() {
     {
       title: isUrdu ? "تصدیقی کیئر سمری اور واٹس ایپ اپ ڈیٹس" : "Direct WhatsApp Shift Summaries",
       desc: isUrdu
-        ? "ہر وزٹ پر بلڈ پریشر، ادویات اور موڈ کے بارے میں تصدیق شدہ رپورٹ براہ راست موصول کریں۔"
-        : "Daily logs detailing vital signs, meals, medications taken, and mood sent directly to your phone.",
+        ? "ہر وزٹ پر بلڈ پریشر، ادویات اور موڈ کے بارے میں باقاعدہ رپورٹ براہ راست موصول کریں۔"
+        : "Routine visit updates detailing vitals, meals, and general comfort sent directly to family.",
     },
     {
       title: isUrdu ? "والدین کی ویڈیو کالز میں معاونت" : "Video Call Assistance for Parents",
       desc: isUrdu
         ? "بزرگوں کو اسمارٹ فون یا ٹیبلیٹ پر ویڈیو کال پر بات کروانے میں کیئر گیور کی مدد۔"
-        : "Caregivers assist less tech-savvy parents to easily connect on regular video calls with children abroad.",
+        : "Caregivers assist parents to easily connect on regular video calls with children abroad.",
     },
   ];
 
@@ -111,12 +114,12 @@ export function OverseasHighlight() {
             </FadeIn>
           </div>
 
-          {/* Visual Showcase with Authentic Video Call Photography (Col 8 to 12) */}
+          {/* Visual Showcase with Authentic Video Call Photography + 4 Floating Informational Cards (Col 8 to 12) */}
           <div className="lg:col-span-5 relative">
             <ImageReveal>
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Image Frame */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/40 aspect-[4/5] bg-navy-950 group">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/30 aspect-[4/5] bg-navy-950 group">
                   <Image
                     src="https://images.unsplash.com/photo-1758686254457-6aaca1ca78e0?auto=format&fit=crop&w=1200&q=85"
                     alt="Authentic family video calling their elderly parents from overseas on a laptop with smiles and reassurance"
@@ -125,10 +128,10 @@ export function OverseasHighlight() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/25 to-transparent" />
 
-                  {/* Overlaid Notice Card */}
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-navy-900/90 backdrop-blur-md border border-gold-400/40 text-left rtl:text-right shadow-soft-lg">
+                  {/* Overlaid Bottom Reassurance Card */}
+                  <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-navy-900/90 backdrop-blur-md border border-gold-400/40 text-left rtl:text-right shadow-soft-lg">
                     <p className="text-xs font-bold text-gold-400 mb-1 flex items-center gap-1.5">
                       <MessageCircle className="w-4 h-4 text-gold-400" />
                       <span>{isUrdu ? "دیارِ غیر میں بھی والدین کے قریب" : "Close to Their Heart, Everywhere"}</span>
@@ -136,10 +139,70 @@ export function OverseasHighlight() {
                     <p className="text-[11px] text-cream-200 leading-snug">
                       {isUrdu
                         ? "ہم آپ کے والدین کو وہی محبت اور ادب فراہم کرتے ہیں جس کی وہ اپنے بچوں سے امید رکھتے ہیں۔"
-                        : "Delivering respectful hands and daily presence for your parents in Lahore, Islamabad, and Multan."}
+                        : "Delivering compassionate presence and daily communication for families across the globe."}
                     </p>
                   </div>
                 </div>
+
+                {/* Floating Informational Card 1 — Care Consultation (Top Left Floating) */}
+                <motion.div
+                  animate={
+                    shouldReduceMotion
+                      ? {}
+                      : { y: [-4, 6, -4], x: [0, 4, 0] }
+                  }
+                  transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut" }}
+                  className="hidden sm:flex absolute -top-5 -left-5 z-20 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-gold-400/40 text-navy-900 shadow-soft-xl"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-gold-500/15 flex items-center justify-center text-gold-700">
+                    <CalendarCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h5 className="text-xs font-bold leading-tight">
+                      {isUrdu ? "کیئر کنسلٹیشن" : "Care Consultation"}
+                    </h5>
+                    <span className="text-[10px] text-navy-600">
+                      {isUrdu ? "وقت کا آزادانہ انتخاب" : "Flexible timezones"}
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Floating Informational Card 2 — Personalized Arrangements (Top Right Floating) */}
+                <motion.div
+                  animate={
+                    shouldReduceMotion
+                      ? {}
+                      : { y: [5, -5, 5], x: [-3, 3, -3] }
+                  }
+                  transition={{ duration: 7.0, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                  className="hidden sm:flex absolute -top-4 -right-5 z-20 items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-sage-400/40 text-navy-900 shadow-soft-xl"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-sage-500/15 flex items-center justify-center text-sage-700">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h5 className="text-xs font-bold leading-tight">
+                      {isUrdu ? "انفرادی انتظامات" : "Tailored Plans"}
+                    </h5>
+                    <span className="text-[10px] text-navy-600">
+                      {isUrdu ? "مطلوبہ شیڈول" : "Custom schedules"}
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Floating Informational Card 3 — Video Calls (Middle Right Floating) */}
+                <motion.div
+                  animate={
+                    shouldReduceMotion
+                      ? {}
+                      : { y: [-6, 6, -6] }
+                  }
+                  transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                  className="hidden md:flex absolute top-1/2 -right-8 -translate-y-1/2 z-20 items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-800/95 backdrop-blur-md border border-gold-400/40 text-gold-300 shadow-soft-xl text-xs font-bold"
+                >
+                  <Video className="w-4 h-4 text-gold-400" />
+                  <span>{isUrdu ? "ہفتہ وار ویڈیو رابطہ" : "Assisted Video Calls"}</span>
+                </motion.div>
               </div>
             </ImageReveal>
           </div>

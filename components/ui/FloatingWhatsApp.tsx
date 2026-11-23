@@ -5,12 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { businessConfig, getWhatsAppInquiryUrl } from "@/lib/config/business";
+import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle, X, CalendarCheck, ShieldAlert, ArrowRight, ArrowLeft } from "lucide-react";
 
 export function FloatingWhatsApp() {
   const { isUrdu, lang } = useLanguage();
   const pathname = usePathname();
   const [modalOpen, setModalOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   const ArrowIcon = isUrdu ? ArrowLeft : ArrowRight;
 
   // Determine context-specific inquiry topic from current route
@@ -26,7 +28,10 @@ export function FloatingWhatsApp() {
   return (
     <>
       {/* Floating Action Button - Positioned on corner clear of hero content & mobile bottom bar */}
-      <aside
+      <motion.aside
+        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.85, y: shouldReduceMotion ? 0 : 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
         aria-label={isUrdu ? "فوری رابطہ و رہنمائی" : "Quick In-Home Care Inquiries"}
         className="fixed bottom-24 md:bottom-8 right-5 md:right-8 rtl:right-auto rtl:left-5 rtl:md:left-8 z-40 flex items-center print:hidden"
       >
@@ -56,7 +61,7 @@ export function FloatingWhatsApp() {
             </span>
           </button>
         )}
-      </aside>
+      </motion.aside>
 
       {/* Honest Status Modal when official WhatsApp line is unassigned */}
       {modalOpen && !isConfigured && (

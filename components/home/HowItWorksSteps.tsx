@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { motion, useReducedMotion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   FileText,
@@ -18,31 +19,40 @@ import {
 export function HowItWorksSteps() {
   const { isUrdu, t } = useLanguage();
   const ArrowIcon = isUrdu ? ArrowLeft : ArrowRight;
+  const shouldReduceMotion = useReducedMotion();
 
   const steps = [
     {
       step: "01",
       icon: FileText,
-      title: t("hiw_step_1_title"),
-      desc: t("hiw_step_1_desc"),
+      title: isUrdu ? "درخواست و استفسار" : "Request Care",
+      desc: isUrdu
+        ? "آن لائن فارم یا فون کے ذریعے اپنے بزرگ کی بنیادی معلومات اور ضروریات شیئر کریں۔"
+        : "Share basic routine requirements and preferences through our brief inquiry form or advisory call.",
     },
     {
       step: "02",
       icon: PhoneCall,
-      title: t("hiw_step_2_title"),
-      desc: t("hiw_step_2_desc"),
+      title: isUrdu ? "ضروریات پر تفصیلی بات چیت" : "Discuss Needs",
+      desc: isUrdu
+        ? "ہمارے کیئر ایڈوائزر آپ کے ساتھ روزمرہ معمولات، طبی ہدایات اور وقت کا تفصیلی جائزہ لیتے ہیں۔"
+        : "A confidential discussion covering daily mobility, medication schedules, and family expectations.",
     },
     {
       step: "03",
       icon: ClipboardCheck,
-      title: t("hiw_step_3_title"),
-      desc: t("hiw_step_3_desc"),
+      title: isUrdu ? "ذاتی نگہداشت کا منصوبہ" : "Plan Care",
+      desc: isUrdu
+        ? "بزرگ کے مزاج اور ضروریات سے ہم آہنگ تربیت یافتہ نگہداشت کار کا باوقار تعارف اور شیڈول۔"
+        : "Matching qualified, vetted attendants or clinical nurses tailored to your family pace.",
     },
     {
       step: "04",
       icon: HeartHandshake,
-      title: t("hiw_step_4_title"),
-      desc: t("hiw_step_4_desc"),
+      title: isUrdu ? "مسلسل رابطہ اور اطمینان" : "Stay Connected",
+      desc: isUrdu
+        ? "باقاعدہ رپورٹس، نگران وزٹس اور اوورسیز فیملیز کے لیے واٹس ایپ سمریز سے مکمل ذہنی سکون۔"
+        : "Routine visit updates and continuous communication ensuring complete peace of mind.",
     },
   ];
 
@@ -67,28 +77,38 @@ export function HowItWorksSteps() {
             <p className="text-base text-navy-700/80 leading-relaxed max-w-2xl mx-auto">
               {isUrdu
                 ? "پہلے مشورے سے لے کر کیئر گیور کے باوقار آغاز تک، ہمارا ہر قدم آپ کی تسلی اور بزرگ کی حفاظت پر مبنی ہے۔"
-                : "From your initial confidential consultation to daily supervisory check-ins, our onboarding is smooth, safe, and transparent."}
+                : "From your initial confidential consultation to daily check-ins, our onboarding is smooth, safe, and transparent."}
             </p>
           </FadeIn>
         </div>
 
-        {/* 4 Steps Timeline with connecting gradient line */}
+        {/* 4 Steps Timeline with Animated Progressive Connecting Line */}
         <div className="relative">
-          {/* Desktop timeline track */}
-          <div className="hidden lg:block absolute top-12 left-12 right-12 h-0.5 bg-gradient-to-r from-gold-300 via-sage-300 to-navy-300 z-0" />
+          {/* Desktop Animated Progressive Line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{
+              duration: shouldReduceMotion ? 0.05 : 0.9,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="hidden lg:block absolute top-12 left-12 right-12 h-0.5 bg-gradient-to-r from-gold-400 via-sage-400 to-navy-400 origin-left rtl:origin-right z-0"
+          />
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {steps.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <StaggerItem key={idx}>
-                  <div className="group relative bg-white rounded-3xl p-7 border border-navy-900/5 shadow-soft-sm hover:shadow-soft-lg hover:border-gold-400/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full">
+                  <div className="group relative bg-white rounded-3xl p-7 border border-navy-900/5 shadow-soft-sm hover:shadow-soft-lg hover:border-gold-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full">
                     <div>
                       <div className="flex items-center justify-between mb-6">
-                        <span className="text-2xl font-black text-gold-500 font-serif group-hover:scale-105 transition-transform">
+                        {/* Numbered Circle Indicator */}
+                        <div className="w-10 h-10 rounded-full border-2 border-gold-400 bg-gold-50/80 text-navy-900 font-extrabold flex items-center justify-center font-serif text-sm shadow-sm group-hover:bg-gold-400 group-hover:text-navy-950 transition-colors">
                           {item.step}
-                        </span>
-                        <div className="w-12 h-12 rounded-2xl bg-navy-50 text-navy-800 flex items-center justify-center group-hover:bg-gold-400 group-hover:text-navy-950 transition-colors">
+                        </div>
+                        <div className="w-12 h-12 rounded-2xl bg-navy-50 text-navy-800 flex items-center justify-center group-hover:bg-navy-900 group-hover:text-gold-300 transition-colors">
                           <Icon className="w-6 h-6" />
                         </div>
                       </div>
@@ -108,10 +128,10 @@ export function HowItWorksSteps() {
                         {idx === 0
                           ? isUrdu ? "مفت جائزہ" : "No obligation"
                           : idx === 1
-                          ? isUrdu ? "24 گھنٹے میں" : "Within 24h"
+                          ? isUrdu ? "تفصیلی گفتگو" : "Consultation"
                           : idx === 2
-                          ? isUrdu ? "ٹرائل سپورٹ" : "Trial period"
-                          : isUrdu ? "مسلسل رابطہ" : "Ongoing reports"}
+                          ? isUrdu ? "انفرادی انتخاب" : "Custom Match"
+                          : isUrdu ? "مسلسل رابطہ" : "Ongoing Care"}
                       </span>
                     </div>
                   </div>
