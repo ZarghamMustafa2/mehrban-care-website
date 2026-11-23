@@ -61,8 +61,8 @@ export function Footer() {
                 <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <span>
                   {isUrdu
-                    ? "لاہور اور اسلام آباد / راولپنڈی (پائلٹ خدمات) • پاکستان"
-                    : "Serving Lahore & Islamabad / Rawalpindi (Pilot Phase), Pakistan"}
+                    ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں (لاہور، اسلام آباد / راولپنڈی، ملتان)"
+                    : "Contact Us to Confirm Service Availability (Lahore, Islamabad / Rawalpindi & Multan)"}
                 </span>
               </div>
               <div className="flex items-center gap-2.5">

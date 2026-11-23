@@ -243,8 +243,8 @@ export const servicesData: DetailedService[] = [
       { step: "3", title: "جراثیم سے پاک طریقہ کار", desc: "زخموں کی صفائی، ڈریسنگ اور تجویز کردہ ادویات کی فراہمی۔" },
       { step: "4", title: "طبی چارٹ کی تیاری", desc: "ڈاکٹر اور اہل خانہ کے لیے صحت یابی کی روزمرہ رپورٹنگ۔" }
     ],
-    limitationsEn: "All nursing interventions are performed strictly under instructions of a registered physician. Mehrban Care does not diagnose illnesses.",
-    limitationsUr: "تمام نرسنگ اقدامات مستند رجسٹرڈ ڈاکٹر کی تحریری ہدایت پر ہوتے ہیں۔ مہربان کیئر خود امراض کی تشخیص نہیں کرتی۔",
+    limitationsEn: "Home nursing visits and procedures are executed under the direct instructions of a registered physician. Mehrban Care caregivers and nurses do not diagnose medical conditions or alter prescribed treatments independently.",
+    limitationsUr: "تمام نرسنگ اقدامات مستند رجسٹرڈ ڈاکٹر کی تحریری ہدایات کے تحت انجام پاتے ہیں۔ ہمارے کیئر گیورز یا نرسز امراض کی از خود تشخیص نہیں کرتے اور نہ ہی نسخے میں تبدیلی کرتے ہیں۔",
     relatedSlugs: ["monitoring", "physiotherapy", "live-in-care"]
   },
   {
@@ -316,8 +316,8 @@ export const servicesData: DetailedService[] = [
       { step: "3", title: "لاگ بک میں باقاعدہ اندراج", desc: "تمام ویلیوز کا ہیلتھ ریکارڈ میں وقت کے ساتھ اندراج۔" },
       { step: "4", title: "اہل خانہ کو ترسیل", desc: "واٹس ایپ گروپ میں روزانہ رزلٹ کی فوری ترسیل۔" }
     ],
-    limitationsEn: "Monitoring is observational. In case of acute medical emergencies, family is notified and emergency ambulance protocols are initiated.",
-    limitationsUr: "یہ نگرانی اور ریکارڈ کی سروس ہے۔ ہنگامی صورتحال میں فوری طور پر اہل خانہ کو مطلع اور ایمبولینس سروس کو الرٹ کیا جاتا ہے۔",
+    limitationsEn: "Vital sign tracking is observational and documented for physician review. Caregivers do not diagnose conditions or adjust medical treatments. In acute emergencies, family is alerted immediately and emergency ambulance protocols are initiated.",
+    limitationsUr: "بلڈ پریشر اور شوگر وغیرہ کا اندراج معالج کے جائزے کے لیے کیا جاتا ہے۔ کیئر گیورز کسی مرض کی تشخیص نہیں کرتے اور نہ ہی ادویات میں ردوبدل کرتے ہیں۔ کسی بھی ایمرجنسی میں اہل خانہ کو فوری مطلع کر کے ایمبولینس کا بندوبست کیا جاتا ہے۔",
     relatedSlugs: ["home-nursing", "doctor-visit", "daily-care"]
   },
   {
@@ -462,8 +462,8 @@ export const servicesData: DetailedService[] = [
       { step: "3", title: "کیئر گیور کی معاونت", desc: "فزیو سیشنز کے درمیانی دنوں میں محفوظ ریپیٹیشنز میں مدد۔" },
       { step: "4", title: "بہتری کی مانیٹرنگ", desc: "چلنے کے فاصلے، توازن اور پٹھوں کی مضبوطی کا باقاعدہ اندراج۔" }
     ],
-    limitationsEn: "Caregivers supervise exercises prescribed by the therapist; they do not diagnose muscular or skeletal injuries independently.",
-    limitationsUr: "کیئر گیورز فزیو تھراپسٹ کی تجویز کردہ مشقیں کرواتے ہیں، وہ خود کوئی نیا طریقہ تجویز نہیں کرتے۔",
+    limitationsEn: "Caregivers provide assistance and encouragement with exercises specifically prescribed by licensed physiotherapists. Caregivers are not licensed physiotherapists and do not design or alter physical therapy plans independently.",
+    limitationsUr: "کیئر گیورز مستند فزیو تھراپسٹ کی تجویز کردہ مشقوں کو دہرانے میں سہارا دیتے ہیں۔ کیئر گیورز بذات خود فزیو تھراپسٹ نہیں ہیں اور اپنی طرف سے کوئی نئی تھراپی تجویز یا تبدیل نہیں کرتے۔",
     relatedSlugs: ["home-nursing", "daily-care", "monitoring"]
   },
   {
@@ -535,8 +535,8 @@ export const servicesData: DetailedService[] = [
       { step: "3", title: "ہفتہ وار سپروائزری وزٹ", desc: "نگہداشت کے معیار اور بزرگ کی تسلی کے لیے فیلڈ سپروائزر کا معائنہ۔" },
       { step: "4", title: "بغیر تعطل متبادل انتظام", desc: "چھٹی کے اوقات میں دوسرے کیئر گیور کی بروقت منتقلی۔" }
     ],
-    limitationsEn: "Requires provision of private, dignified sleeping quarters and meals for the live-in caregiver by the host family.",
-    limitationsUr: "24 گھنٹے قیام کرنے والے کیئر گیور کے لیے مناسب کمرہ اور کھانے کا اہتمام میزبان فیملی کے ذمہ ہوتا ہے۔",
+    limitationsEn: "Live-in care requires private, comfortable sleeping quarters and meals provided by the host family. Shift schedules, designated rest periods, and relief coverage intervals are mutually agreed in advance to maintain attentive care.",
+    limitationsUr: "24 گھنٹے قیام پذیر کیئر گیور کے لیے مناسب نجی رہائش اور کھانے کا اہتمام میزبان فیملی کے ذمہ ہوتا ہے۔ نگہداشت کے اعلیٰ معیار کے لیے کام کے اوقات، آرام کے وقفے اور چھٹی کے دن باہمی رضا مندی سے پیشگی طے کیے جاتے ہیں۔",
     relatedSlugs: ["hygiene-care", "home-nursing", "overseas-support"]
   },
   {
@@ -549,16 +549,16 @@ export const servicesData: DetailedService[] = [
     descKey: "service_8_desc",
     imageUrl: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=85",
     features: [
-      "Digital WhatsApp care briefings",
-      "Video call assistance for parents",
-      "Prescription restocking coordination",
-      "Dedicated overseas family care manager"
+      "Direct WhatsApp updates & call summaries",
+      "Video call coordination for parents",
+      "Emergency family notification protocols",
+      "Dedicated Care Coordinator in Pakistan"
     ],
     featuresUr: [
-      "واٹس ایپ پر ہر وزٹ کی تفصیلی سمری",
-      "والدین کو ویڈیو کال ملوانے میں مدد",
-      "ماہانہ ادویات کی خریداری اور انتظام",
-      "اوورسیز فیملی کے لیے مخصوص مینیجر"
+      "واٹس ایپ پر براہ راست وزٹ سمری اور رپورٹس",
+      "والدین کو ویڈیو کال پر بات کروانے میں مدد",
+      "ہنگامی حالات میں فیملی کو فوری اطلاع کا پروٹوکول",
+      "پاکستان میں مخصوص کیئر کوآرڈینیٹر"
     ],
     fullDescEn: "Specially tailored for overseas Pakistanis in the Gulf, UK, North America, and Europe. We bridge thousands of miles with transparent communication, digital visit updates, direct Care Manager access, and verified home care so you know your parents are cherished.",
     fullDescUr: "بیرون ملک مقیم پاکستانیوں کے لیے خاص طور پر تیار کردہ پروگرام۔ ہزاروں میل کے فاصلے کے باوجود آپ اپنے والدین کے ہر لمحے سے باخبر رہتے ہیں۔ ہم شفاف اپ ڈیٹس اور مخلص نگہداشت کے ذریعے پردیسیوں کے دل کا سکون بنتے ہیں۔",
@@ -608,8 +608,8 @@ export const servicesData: DetailedService[] = [
       { step: "3", title: "واٹس ایپ رپورٹنگ گروپ", desc: "کیئر کوآرڈینیٹر کے ساتھ مخصوص فیملی چینل کی تشکیل۔" },
       { step: "4", title: "مسلسل دلی سکون", desc: "ہر وزٹ پر والدین کی خیریت، ادویات اور معمولات کی باقاعدہ ترسیل۔" }
     ],
-    limitationsEn: "We coordinate care in designated cities in Pakistan. Time-zone conscious communication scheduled between families and our team.",
-    limitationsUr: "ہم پاکستان کے مخصوص شہروں میں خدمات دیتے ہیں۔ وقت کے فرق (ٹائم زون) کو مدنظر رکھ کر رابطے کا وقت طے کیا جاتا ہے۔",
+    limitationsEn: "Direct human communication via phone and WhatsApp without automated portal gimmicks. Contact us to confirm service availability in your parents' locality.",
+    limitationsUr: "واٹس ایپ اور فون کے ذریعے شفاف انسانی رابطہ، کسی غیر ضروری خودکار نظام کے بغیر۔ اپنے والدین کے علاقے میں دستیابی کی تصدیق کے لیے ہم سے رابطہ فرمائیں۔",
     relatedSlugs: ["live-in-care", "doctor-visit", "monitoring"]
   }
 ];

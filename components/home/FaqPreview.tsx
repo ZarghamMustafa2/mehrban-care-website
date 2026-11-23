@@ -14,11 +14,11 @@ export function FaqPreview() {
     {
       id: "faq-1",
       question: isUrdu
-        ? "ہم بزرگ کے لیے نگہداشت کی سروس کیسے بک کر سکتے ہیں؟"
-        : "How do we request and start care for an elderly parent?",
+        ? "آپ نگہداشت کاروں کی جانچ پڑتال اور تصدیق کیسے کرتے ہیں؟"
+        : "How do you select and vet caregivers?",
       answer: isUrdu
-        ? "طریقہ کار نہایت آسان ہے۔ آپ ہماری ویب سائٹ کے ذریعے یا فون پر رابطہ کر کے اپنی ضروریات بتائیں۔ ہمارا کیئر کوآرڈینیٹر آپ سے بات چیت کر کے انفرادی کیئر پلان مرتب کرے گا، اور مناسب و تصدیق شدہ کیئر گیور کا انتخاب عمل میں لایا جائے گا۔"
-        : "Getting started is straightforward. You submit an inquiry online or speak with our care advisor. We discuss your parent's daily routine, medical instructions, and living arrangement to design a personalized care roadmap before assigning a thoroughly vetted caregiver.",
+        ? "ہمارا 4 مرحلہ وار کڑا تصدیقی نظام ہے: نادرا بائیو میٹرک شناختی کارڈ تصدیق، مقامی تھانے کی پولیس کلیئرنس، سابقہ مریضوں اور ڈاکٹرز کے حوالہ جات کی تصدیق، اور بزرگوں کی نفسیات، گرنے سے بچاؤ اور حفظانِ صحت کی جامع ٹریننگ۔"
+        : "Every caregiver undergoes a rigorous 4-stage vetting protocol: biometric government identity checks, local police clearance certificates, past employer and physician reference audits, and specialized eldercare safety training.",
     },
     {
       id: "faq-2",
@@ -32,6 +32,24 @@ export function FaqPreview() {
     {
       id: "faq-3",
       question: isUrdu
+        ? "ایک نگہداشت کار (کیئر گیور) اور نرس میں کیا فرق ہے؟"
+        : "What is the difference between a caregiver and a nurse?",
+      answer: isUrdu
+        ? "کیئر گیور روزمرہ زندگی کے غیر طبی معمولات میں مدد دیتا ہے—جیسے کھانا پیش کرنا، ذاتی صفائی، غسل، چہل قدمی، ادویات کے وقت کی یاد دہانی اور مخلص رفاقت۔ جبکہ مستند نرس ڈاکٹر کے نسخے کے مطابق کلینیکل کام انجام دیتی ہے—جیسے زخموں کی پٹی اور طبی ہدایات پر عمل۔"
+        : "A caregiver assists with non-medical daily living activities (meals, hygiene, mobility, medication reminders, companionship). A home nurse provides clinical nursing interventions (wound dressing, catheter care, IV monitoring) strictly prescribed by a physician.",
+    },
+    {
+      id: "faq-4",
+      question: isUrdu
+        ? "مہربان کیئر اس وقت کن شہروں میں خدمات فراہم کر رہی ہے؟"
+        : "In which cities does Mehrban Care operate?",
+      answer: isUrdu
+        ? "ہم فی الوقت لاہور، اسلام آباد / راولپنڈی، اور ملتان میں خدمات کے لیے رابطے قبول کرتے ہیں۔ سروس کی فراہمی کا انحصار متعلقہ علاقے اور عملے کی دستیابی پر ہوتا ہے۔ اپنے والدین کے علاقے میں دستیابی کی تصدیق کے لیے برائے مہربانی ہم سے رابطہ فرمائیں۔"
+        : "We currently review care inquiries and provide services in Lahore, Islamabad/Rawalpindi, and Multan. Service availability depends on exact neighborhood location and caregiver allocation. Please contact us to confirm service availability in your parents' locality.",
+    },
+    {
+      id: "faq-5",
+      question: isUrdu
         ? "بیرون ملک مقیم بچوں کو والدین کی خیریت سے کیسے آگاہ رکھا جاتا ہے؟"
         : "How are overseas children kept updated on their parents' daily care?",
       answer: isUrdu
@@ -39,22 +57,13 @@ export function FaqPreview() {
         : "We bridge distance through proactive communication. Overseas sons and daughters receive regular structured WhatsApp updates after key visits, detailing vital sign logs, dietary intake, and mood. You also have a direct line to our Care Coordinator.",
     },
     {
-      id: "faq-4",
+      id: "faq-6",
       question: isUrdu
-        ? "کیا مہربان کیئر کا عملہ دوائیاں تجویز کر سکتا ہے؟"
-        : "Can Mehrban Care caregivers prescribe medicines or change dosages?",
+        ? "ابتدائی مشاورت کے بعد نگہداشت کا آغاز کتنی جلدی ہو سکتا ہے؟"
+        : "How quickly can care be arranged after the initial consultation?",
       answer: isUrdu
-        ? "ہرگز نہیں۔ مہربان کیئر غیر طبی معاونت اور رجسٹرڈ نرسنگ نگہداشت فراہم کرتی ہے۔ ادویات ہمیشہ آپ کے معالج ڈاکٹر کے نسخے کے مطابق دی جاتی ہیں، ہمارا عملہ خود کوئی دوا تجویز یا تبدیل نہیں کرتا۔"
-        : "No. Mehrban Care delivers non-medical assistance and supervised nursing support strictly adhering to orders written by the patient's licensed physician. Our caregivers never diagnose conditions or prescribe medications independently.",
-    },
-    {
-      id: "faq-5",
-      question: isUrdu
-        ? "ہنگامی طبی صورتحال میں آپ کا کیا لائحہ عمل ہوتا ہے؟"
-        : "What is your protocol in sudden medical emergencies?",
-      answer: isUrdu
-        ? "نگہداشت کے آغاز پر ہی فیملی کے ساتھ ہنگامی رابطہ نمبرز اور قریبی ہسپتال کا اندراج کیا جاتا ہے۔ کسی بھی ہنگامی کیفیت میں عملہ فوری طور پر اہل خانہ کو مطلع کرتا ہے اور ہنگامی ایمبولینس سروس کو الرٹ کر کے ابتدائی تحفظ فراہم کرتا ہے۔"
-        : "Every care plan includes a documented Emergency Protocol with designated family contacts, chosen hospital, and treating physician. If an acute episode occurs, the caregiver immediately calls family and activates emergency medical response.",
+        ? "تفصیلی خاندانی مشاورت اور مناسب نگہداشت کار کے انتخاب کے بعد عام طور پر 24 سے 48 گھنٹوں میں نگہداشت کا باقاعدہ آغاز ہو جاتا ہے۔ ہسپتال سے اچانک ڈسچارج جیسی فوری ضرورت کی صورت میں ہم ترجیحی بنیادوں پر تیز ترین انتظام کرتے ہیں۔"
+        : "Care arrangements are typically established within 24 to 48 hours following family consultation and caregiver matching. Urgent post-hospital discharge situations are prioritized.",
     },
   ];
 

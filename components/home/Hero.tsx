@@ -40,17 +40,17 @@ export function Hero() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight leading-[1.15] text-balance">
               {isUrdu ? (
                 <span>
-                  جن کا وجود{" "}
+                  کیونکہ آپ کے پیارے صرف{" "}
                   <span className="text-gold-500 font-bold underline decoration-gold-300 underline-offset-8">
-                    سب سے انمول ہے
-                  </span>
-                  ، ان کی باوقار اور پرخلوص دیکھ بھال۔
+                    بہترین دیکھ بھال
+                  </span>{" "}
+                  کے حقدار ہیں۔
                 </span>
               ) : (
                 <span>
-                  Compassionate Care for the{" "}
+                  Because Your Loved Ones Deserve the{" "}
                   <span className="text-gold-500 font-extrabold italic font-serif">
-                    Ones Who Matter Most.
+                    Best Care.
                   </span>
                 </span>
               )}
@@ -64,18 +64,18 @@ export function Hero() {
             {/* Call to Actions */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
-                href="#care-finder"
+                href="/services"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-navy-900 text-cream-100 font-bold text-base shadow-soft-md hover:bg-navy-800 hover:shadow-soft-lg transition-all duration-300 group border border-navy-700"
               >
-                <Sparkles className="w-5 h-5 text-gold-400" />
                 <span>{t("hero_cta_primary")}</span>
                 <ArrowIcon className="w-4 h-4 text-gold-400 transition-transform group-hover:translate-x-1" />
               </Link>
 
               <Link
-                href="/services"
+                href="/book-care"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-navy-900 font-semibold text-base border border-navy-900/15 shadow-soft-sm hover:bg-gold-50 hover:border-gold-400 transition-colors"
               >
+                <CalendarCheck className="w-5 h-5 text-gold-600" />
                 <span>{t("hero_cta_secondary")}</span>
               </Link>
             </div>

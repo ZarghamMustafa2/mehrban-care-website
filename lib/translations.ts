@@ -68,20 +68,20 @@ export const translations: Record<string, TranslationItem> = {
     ur: "پاکستانی بزرگوں کے لیے باوقار گھریلو دیکھ بھال",
   },
   hero_headline: {
-    en: "Compassionate Care for the Ones Who Matter Most.",
-    ur: "جن کا وجود سب سے انمول ہے، ان کی باوقار اور پرخلوص دیکھ بھال۔",
+    en: "Because Your Loved Ones Deserve the Best Care.",
+    ur: "کیونکہ آپ کے پیارے صرف بہترین دیکھ بھال کے حقدار ہیں۔",
   },
   hero_subheadline: {
-    en: "Professional elderly home-care assistance designed to bring comfort, dignity, and peace of mind to your family.",
-    ur: "پیشہ ورانہ گھریلو نگہداشت جو آپ کے خاندان کے لیے سکون، وقار اور مکمل ذہنی اطمینان لائے۔",
+    en: "Compassionate elderly home-care assistance, personalized support, and peace of mind for families.",
+    ur: "ہمدردانہ گھریلو نگہداشت، انفرادی توجہ اور اہل خانہ کے لیے مکمل ذہنی سکون۔",
   },
   hero_cta_primary: {
-    en: "Find the Right Care",
-    ur: "مناسب دیکھ بھال تلاش کریں",
+    en: "Explore Care Services",
+    ur: "نگہداشت کی خدمات دیکھیں",
   },
   hero_cta_secondary: {
-    en: "Explore Our Services",
-    ur: "ہماری خدمات دیکھیں",
+    en: "Request a Care Consultation",
+    ur: "نگہداشت مشاورت طلب کریں",
   },
   hero_stat_1_label: {
     en: "Care Commitment",
@@ -346,12 +346,12 @@ export const translations: Record<string, TranslationItem> = {
     ur: "پردیس میں مقیم پاکستانیوں کے لیے",
   },
   overseas_heading: {
-    en: "Distance Should Never Mean Worry.",
-    ur: "فاصلے کبھی فکر اور بے چینی کی وجہ نہ بنیں۔",
+    en: "Far From Home. Close to Their Care.",
+    ur: "گھر سے دور، مگر والدین کی نگہداشت کے قریب۔",
   },
   overseas_subheading: {
-    en: "Miles Apart. Always Connected Through Care.",
-    ur: "دوریاں ہزاروں میل کی، دیکھ بھال ہمیشہ قریب۔",
+    en: "Living abroad shouldn't mean losing touch with the care your parents need. Explore personalized home-care arrangements and family communication options.",
+    ur: "پردیس میں رہنے کا مطلب والدین کی نگہداشت سے کٹ جانا نہیں ہے۔ انفرادی گھریلو دیکھ بھال اور مستقل خاندانی رابطے کے مخلصانہ طریقہ کار کو جانیے۔",
   },
   overseas_p1: {
     en: "Living in the UK, UAE, USA, Canada, Saudi Arabia, or elsewhere in the world while elderly parents remain in Pakistan is an emotional burden carried by thousands of overseas families. You worry about missed medicines, sudden falls, poor meals, and silent loneliness.",
@@ -428,8 +428,8 @@ export const translations: Record<string, TranslationItem> = {
     ur: "12 گھنٹے شفٹ یا 24 گھنٹے مستقل",
   },
   plan_cta: {
-    en: "Request a Custom Quote",
-    ur: "کوٹیشن طلب کریں",
+    en: "Request a Personalized Quote",
+    ur: "انفرادی کوٹیشن طلب کریں",
   },
   plan_note: {
     en: "* Service fees are quoted individually based on city, required skill level, and schedule. No hidden costs.",

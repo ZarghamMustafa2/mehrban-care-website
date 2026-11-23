@@ -91,13 +91,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-navy-400 block">
-                      {isUrdu ? "پائلٹ سروس کے علاقے" : "Current Operational Cities"}
+                      {isUrdu ? "سروس کی دستیابی" : "Service Availability"}
                     </span>
                     <span className="font-semibold text-navy-900 text-sm mt-0.5 block">
-                      {isUrdu ? "لاہور، اسلام آباد اور راولپنڈی" : "Lahore, Islamabad & Rawalpindi"}
+                      {isUrdu ? "لاہور، اسلام آباد / راولپنڈی اور ملتان" : "Lahore, Islamabad / Rawalpindi & Multan"}
                     </span>
                     <span className="text-xs text-navy-600 block mt-0.5">
-                      {isUrdu ? "دیگر شہروں کے لیے رجسٹریشن جاری ہے" : "Other cities open for advance registration"}
+                      {isUrdu ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں" : "Contact us to confirm service availability"}
                     </span>
                   </div>
                 </div>

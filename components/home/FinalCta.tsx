@@ -57,8 +57,8 @@ export function FinalCta() {
               <Shield className="w-4 h-4 text-gold-400" />
               <span>
                 {isUrdu
-                  ? "پائلٹ سروس: لاہور، اسلام آباد اور راولپنڈی • شفاف نگہداشت"
-                  : "Pilot services available in Lahore, Islamabad & Rawalpindi with individual care consultations"}
+                  ? "سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں (لاہور، اسلام آباد/راولپنڈی، ملتان)"
+                  : "Contact Us to Confirm Service Availability (Inquiries in Lahore, Islamabad/Rawalpindi & Multan)"}
               </span>
             </div>
           </div>

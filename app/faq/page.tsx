@@ -32,7 +32,7 @@ export default function FaqPage() {
   ];
 
   const allFaqs: AccordionItem[] = [
-    // 1. Requesting care
+    // 1. Requesting care & Speed
     {
       id: "req-1",
       category: "request",
@@ -47,11 +47,11 @@ export default function FaqPage() {
       id: "req-2",
       category: "request",
       question: isUrdu
-        ? "درخواست جمع کروانے کے بعد کیئر گیور کتنی جلدی فراہم کیا جا سکتا ہے؟"
-        : "How quickly can a caregiver be assigned after we reach out?",
+        ? "ابتدائی مشاورت کے بعد نگہداشت کا آغاز کتنی جلدی ہو سکتا ہے؟"
+        : "How quickly can care be arranged after the initial consultation?",
       answer: isUrdu
-        ? "عام طور پر مکمل خاندانی مشاورت، ضروریات کے تجزیے اور مناسب کیئر گیور کے انتخاب کے بعد 24 سے 48 گھنٹوں میں سروس کا باقاعدہ آغاز ہو جاتا ہے۔ ہنگامی صورتحال میں ترجیحی بنیادوں پر جلد انتظام کی کوشش کی جاتی ہے۔"
-        : "Typically, care can commence within 24 to 48 hours following family consultation, assessment, and appropriate caregiver matching. Urgent post-hospital discharge situations are prioritized.",
+        ? "تفصیلی خاندانی مشاورت اور مناسب نگہداشت کار کے انتخاب کے بعد عام طور پر 24 سے 48 گھنٹوں میں نگہداشت کا باقاعدہ آغاز ہو جاتا ہے۔ ہسپتال سے اچانک ڈسچارج جیسی فوری ضرورت کی صورت میں ہم ترجیحی بنیادوں پر تیز ترین انتظام کرتے ہیں۔"
+        : "Care arrangements are typically established within 24 to 48 hours following the comprehensive initial family consultation and caregiver matching. In urgent cases—such as sudden hospital discharges—our team strives to expedite the assessment and introduction.",
     },
 
     // 2. Cities & Availability
@@ -59,38 +59,68 @@ export default function FaqPage() {
       id: "cit-1",
       category: "cities",
       question: isUrdu
-        ? "مہربان کیئر اس وقت پاکستان کے کن شہروں میں خدمات فراہم کر رہی ہے؟"
-        : "Which cities in Pakistan are currently covered by Mehrban Care?",
+        ? "مہربان کیئر اس وقت کن شہروں میں خدمات فراہم کر رہی ہے؟"
+        : "In which cities does Mehrban Care operate?",
       answer: isUrdu
-        ? "فی الوقت ہم لاہور، اسلام آباد اور راولپنڈی میں پائلٹ سروسز فراہم کر رہے ہیں۔ بتدریج سروس کا دائرہ کار فیصل آباد، ملتان اور کراچی تک وسیع کرنے کی منصوبہ بندی جاری ہے۔"
-        : "We are currently operating dedicated pilot services in Lahore, Islamabad, and Rawalpindi. Expansion into Faisalabad, Multan, and Karachi is scheduled in upcoming operational phases.",
+        ? "ہم فی الوقت لاہور، اسلام آباد / راولپنڈی، اور ملتان میں خدمات کے لیے رابطے قبول کرتے ہیں۔ سروس کی فراہمی کا انحصار متعلقہ علاقے اور عملے کی دستیابی پر ہوتا ہے۔ اپنے والدین کے علاقے میں دستیابی کی تصدیق کے لیے برائے مہربانی ہم سے رابطہ فرمائیں۔"
+        : "We currently review care inquiries and provide services in Lahore, Islamabad/Rawalpindi, and Multan. Service availability depends on exact neighborhood location and caregiver allocation. Please contact us to confirm service availability in your parents' locality.",
     },
 
-    // 3. Male & Female Caregivers
+    // 3. Caregivers, Vetting & Gender Matching
     {
       id: "cg-1",
       category: "caregivers",
       question: isUrdu
-        ? "کیا بزرگ خواتین کے لیے صرف خواتین اور بزرگ مردوں کے لیے مرد کیئر گیورز ہی فراہم کیے جاتے ہیں؟"
-        : "Do you strictly assign female caregivers to elderly women and male caregivers to men?",
+        ? "آپ نگہداشت کاروں کی جانچ پڑتال اور تصدیق کیسے کرتے ہیں؟"
+        : "How do you select and vet caregivers?",
       answer: isUrdu
-        ? "جی ہاں، بالکل۔ ہم اسلامی اقدار، حیا اور پردے کے اصولوں پر سختی سے عمل کرتے ہیں۔ بزرگ خواتین کی ذاتی نگہداشت (غسل، لباس، واش روم) کے لیے صرف باحجاب و تربیت یافتہ خواتین، اور بزرگ حضرات کے لیے مرد کیئر گیورز ہی مامور کیے جاتے ہیں۔"
-        : "Yes, without exception. Cultural modesty and domestic comfort are strictly respected. Female caregivers are designated for elderly mothers and ladies, while male caregivers assist elderly gentlemen.",
+        ? "ہمارا 4 مرحلہ وار کڑا تصدیقی نظام ہے: نادرا بائیو میٹرک شناختی کارڈ تصدیق، متعلقہ تھانے کی پولیس کلیئرنس، سابقہ مریضوں اور ڈاکٹرز کے حوالہ جات کی تصدیق، اور بزرگوں کی نفسیات، گرنے سے بچاؤ اور حفظانِ صحت کی جامع ٹریننگ۔"
+        : "Every caregiver undergoes a rigorous 4-stage vetting protocol: biometric Nadra CNIC verification, local police character clearance, verification of past family and medical references, and structured orientation in senior safety, hygiene, fall prevention, and respectful companionship.",
     },
     {
       id: "cg-2",
       category: "caregivers",
       question: isUrdu
-        ? "آپ کے نگہداشت کاروں کی تصدیق اور اسکریننگ کا کیا طریقہ کار ہے؟"
-        : "How do you screen and verify your caregivers?",
+        ? "کیا ہم مرد یا خاتون نگہداشت کار کی تخصیص کر سکتے ہیں؟"
+        : "Can we request a male or female caregiver?",
       answer: isUrdu
-        ? "ہمارا 4 مرحلہ وار کڑا تصدیقی نظام ہے: نادرا شناختی کارڈ تصدیق، متعلقہ تھانے کی پولیس کلیئرنس، سابقہ مریضوں اور ڈاکٹرز کے حوالہ جات کی تصدیق، اور بزرگوں کی نفسیات و سیفٹی پروٹوکولز کی جامع ٹریننگ۔"
-        : "We execute a rigorous 4-stage protocol: biometric government identity checks, local police clearance certificates, past employer and physician reference audits, and specialized eldercare safety training.",
+        ? "جی بالکل۔ ہم اپنے ثقافتی اور اسلامی اقدار کا مکمل احترام کرتے ہیں۔ بزرگ خواتین کی ذاتی نگہداشت (غسل، لباس، واش روم) کے لیے صرف باحجاب و تربیت یافتہ خواتین، اور بزرگ حضرات کے لیے مرد کیئر گیورز ہی مامور کیے جاتے ہیں۔"
+        : "Yes, absolutely. We strictly honor cultural modesty, domestic privacy, and personal preference. Female caregivers are designated for elderly mothers and ladies (for personal hygiene, bathing, dressing, and companionship), while male caregivers assist elderly fathers and gentlemen.",
+    },
+    {
+      id: "cg-3",
+      category: "caregivers",
+      question: isUrdu
+        ? "ایک نگہداشت کار (کیئر گیور) اور نرس میں کیا فرق ہے؟"
+        : "What is the difference between a caregiver and a nurse?",
+      answer: isUrdu
+        ? "کیئر گیور روزمرہ زندگی کے غیر طبی معمولات میں مدد دیتا ہے—جیسے کھانا پیش کرنا، ذاتی صفائی، غسل، چہل قدمی، ادویات کے وقت کی یاد دہانی اور مخلص رفاقت۔ جبکہ مستند نرس ڈاکٹر کے نسخے کے مطابق کلینیکل کام انجام دیتی ہے—جیسے زخموں کی پٹی، کیتھیٹر کی دیکھ بھال اور طبی ہدایات پر عمل۔"
+        : "A caregiver assists with non-medical activities of daily living (ADLs)—such as meal prep, eating, grooming, bathing, gentle mobility, medication schedule reminders, and warm companionship. A qualified home nurse provides supervised clinical support—such as aseptic wound dressing, catheter management, and administering treatments strictly prescribed by your treating physician.",
+    },
+    {
+      id: "cg-4",
+      category: "caregivers",
+      question: isUrdu
+        ? "اگر نگہداشت کار کسی دن دستیاب نہ ہو یا بیمار ہو جائے تو کیا ہوتا ہے؟"
+        : "What happens if a caregiver is unavailable or unwell?",
+      answer: isUrdu
+        ? "نگہداشت میں تعطل سے بچنے کے لیے ہمارے پاس متبادل اسٹاف کا باقاعدہ نظام موجود ہے۔ اگر عملے کا کوئی فرد بیمار ہو یا چھٹی پر ہو، تو ہماری سپروائزری ٹیم بزرگ کے معمولات سے مکمل واقف تصدیق شدہ متبادل کیئر گیور فراہم کرتی ہے۔"
+        : "We maintain backup relief protocols to prevent gaps in your loved one's care. If an assigned caregiver falls ill or requires scheduled off-days, our supervisory team coordinates a vetted backup caregiver who is thoroughly briefed on your parent's care routine and medical instructions.",
     },
 
     // 4. Schedules & Plans
     {
       id: "sch-1",
+      category: "schedules",
+      question: isUrdu
+        ? "بستری مریضوں یا کمزور حرکت والے بزرگوں کے لیے دیکھ بھال کیسے ترتیب دی جاتی ہے؟"
+        : "How is care customized for bedridden or mobility-impaired seniors?",
+      answer: isUrdu
+        ? "بستری مریضوں کے لیے ہم بیڈ سورز (زخموں) سے بچاؤ کے لیے ہر 2 سے 3 گھنٹے بعد کروٹ بدلنے، نرم اسفنج باتھ، جلد کی حفاظت، مکمل پردے کے ساتھ طہارت، اور فزیو تھراپسٹ کے مشورے سے ہلکی پھلکی بحالی کی مشقوں کا خصوصی اہتمام کرتے ہیں۔"
+        : "For bedbound seniors, our care plans incorporate pressure sore prevention (scheduled repositioning every 2–3 hours), gentle bed-sponge baths, specialized skin hydration, incontinence care with dignity, and coordinated passive range-of-motion exercises in consultation with physical therapists.",
+    },
+    {
+      id: "sch-2",
       category: "schedules",
       question: isUrdu
         ? "کیا ہم اپنی مرضی کے اوقات یا پارٹ ٹائم شفٹس کا انتخاب کر سکتے ہیں؟"
@@ -127,11 +157,11 @@ export default function FaqPage() {
       id: "os-1",
       category: "overseas",
       question: isUrdu
-        ? "پردیس میں مقیم بچوں کو والدین کی دیکھ بھال کی رپورٹس کیسے ملتی ہیں؟"
-        : "How do overseas family members receive updates on their parents?",
+        ? "اہل خانہ کو اپنے والدین کی خیریت اور دیکھ بھال کی رپورٹس کیسے ملتی ہیں؟"
+        : "How do families receive updates about their parents?",
       answer: isUrdu
-        ? "اوورسیز فیملیز کو ہر وزٹ کے بعد تفصیلی واٹس ایپ سمری، شوگر اور بی پی کے اعداد و شمار، اور بزرگ کے دن بھر کے احوال سے آگاہ کیا جاتا ہے۔ اس کے علاوہ کیئر ایڈوائزر سے براہِ راست رابطہ رہتا ہے۔"
-        : "We send structured WhatsApp briefs after key visits detailing vitals logs, nutritional intake, and senior mood. Overseas children also have direct access to their assigned Care Manager.",
+        ? "اہل خانہ کو ہر وزٹ کے بعد واٹس ایپ پر تفصیلی اور شفاف سمری ملتی ہے، جس میں بلڈ پریشر، شوگر کا چارٹ، خوراک اور بزرگ کے مزاج کی رپورٹ شامل ہوتی ہے۔ پردیس میں مقیم بچوں کو کیئر کوآرڈینیٹر سے براہِ راست رابطے کی سہولت میسر رہتی ہے۔"
+        : "Families receive structured, transparent updates after visits directly via WhatsApp. Summaries include resting vital sign logs (blood pressure, blood glucose where applicable), meal intake, routine observations, and family notes. Overseas family members also have direct phone access to their dedicated Care Coordinator.",
     },
 
     // 7. Payments & Quoting

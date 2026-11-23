@@ -74,8 +74,8 @@ export function Navbar() {
             <span className="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
             <span className="font-medium text-cream-200">
               {isUrdu
-                ? "پاکستان میں بزرگوں کی باوقار گھریلو دیکھ بھال • لاہور اور اسلام آباد پائلٹ سروس"
-                : "Compassionate Elderly Care at Home • Pilot Services Active"}
+                ? "پاکستان میں بزرگوں کی باوقار گھریلو دیکھ بھال • سروس دستیابی کی تصدیق کے لیے رابطہ فرمائیں"
+                : "Compassionate Elderly Care at Home • Contact Us to Confirm Service Availability"}
             </span>
           </div>
 

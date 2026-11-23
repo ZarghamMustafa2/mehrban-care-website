@@ -551,13 +551,13 @@ export function CareBookingForm({
                   onChange={(e) => setCity(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
                 >
-                  <option value="Lahore">Lahore (لاہور) — Pilot Active</option>
-                  <option value="Islamabad">Islamabad (اسلام آباد) — Pilot Active</option>
-                  <option value="Rawalpindi">Rawalpindi (راولپنڈی) — Pilot Active</option>
-                  <option value="Faisalabad">Faisalabad (فیصل آباد) — Pre-Registration</option>
-                  <option value="Multan">Multan (ملتان) — Pre-Registration</option>
-                  <option value="Karachi">Karachi (کراچی) — Upcoming</option>
-                  <option value="Other">Other Pakistani City</option>
+                  <option value="Lahore">Lahore (لاہور) — Inquiries Active</option>
+                  <option value="Islamabad">Islamabad (اسلام آباد) — Inquiries Active</option>
+                  <option value="Rawalpindi">Rawalpindi (راولپنڈی) — Inquiries Active</option>
+                  <option value="Multan">Multan (ملتان) — Inquiries Active</option>
+                  <option value="Faisalabad">Faisalabad (فیصل آباد) — Inquiries Active</option>
+                  <option value="Karachi">Karachi (کراچی) — Inquiries Active</option>
+                  <option value="Other">Other Pakistani City — Contact to Confirm</option>
                 </select>
               </div>
 

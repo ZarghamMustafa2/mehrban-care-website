@@ -84,61 +84,62 @@ export default function OverseasFamiliesPage() {
     }
   ];
 
-  const overseasConcerns = [
+  const sevenCareConcerns = [
     {
-      title: isUrdu ? "ادویات کے چھوٹ جانے کا خوف" : "Missed Medications & Dosing Errors",
-      desc: isUrdu
-        ? "والدین تنہائی یا کمزوری کی وجہ سے شوگر یا بی پی کی اہم دوائی کھانا بھول جاتے ہیں۔"
-        : "Worrying from thousands of miles away whether morning and evening clinical prescriptions are taken accurately.",
+      num: "01",
+      icon: Globe2,
+      titleEn: "The Challenges of Living Thousands of Miles Away",
+      titleUr: "ہزاروں میل دور پردیس میں رہنے کے چیلنجز",
+      descEn: "Living in the UK, UAE, USA, Canada, or Australia creates constant emotional anxiety about your parents aging alone in Pakistan. We provide a respectful, vetted family-like presence to bridge the distance.",
+      descUr: "برطانیہ، خلیج، امریکہ یا کینیڈا میں مقیم بچوں کے لیے والدین سے دوری کی بے چینی فطری ہے۔ ہم پاکستان میں ایک قابل اعتماد خاندانی سہارا فراہم کر کے اس فاصلے کو سمیٹتے ہیں۔",
     },
     {
-      title: isUrdu ? "اچانک گرنے یا ہنگامی صورتحال کا دھڑکا" : "Fear of Sudden Falls & Night Emergencies",
-      desc: isUrdu
-        ? "رات کے وقت باتھ روم جاتے ہوئے پھسل جانا یا اچانک بلڈ پریشر خطرناک حد تک بڑھ جانا۔"
-        : "Uncertainty over bathroom slips, nocturnal dizziness, or delayed response during acute health fluctuations.",
+      num: "02",
+      icon: Clock,
+      titleEn: "Understanding Daily Routines & Care Needs",
+      titleUr: "والدین کے روزمرہ معمولات اور ضروریات کی تفہیم",
+      descEn: "Every household has unique meal habits, prayer times, and mobility rhythms. Our initial family consultation captures these exact preferences before care ever begins.",
+      descUr: "ہر گھرانے میں کھانے پینے، نماز اور آرام کے مخصوص اوقات ہوتے ہیں۔ خدمت شروع کرنے سے قبل ہم والدین کے انفرادی معمولات کو باریک بینی سے سمجھتے ہیں۔",
     },
     {
-      title: isUrdu ? "بزرگوں کی خاموش اداسی اور تنہائی" : "Silent Loneliness & Emotional Isolation",
-      desc: isUrdu
-        ? "بچوں کے پردیس چلے جانے کے بعد گھر کی خاموشی اور بات چیت کی کمی بزرگوں کو توڑ دیتی ہے۔"
-        : "Watching beloved parents quietly endure social loneliness and loss of cheerful daily conversation.",
+      num: "03",
+      icon: Heart,
+      titleEn: "Choosing Assistance: Companionship vs. Nursing",
+      titleUr: "صحیح نگہداشت کا انتخاب: رفاقت بمقابلہ طبی نرسنگ",
+      descEn: "We help you select between general companionship/daily living support and clinical home nursing (wound care, catheter management) under doctor supervision, ensuring your parents receive appropriate care.",
+      descUr: "ہم آپ کو روزمرہ رفاقت اور معالج کی زیر نگرانی طبی نرسنگ (زخموں کی پٹی، کیتھیٹر) کے درمیان درست انتخاب میں رہنمائی دیتے ہیں تاکہ بزرگ کو مطلوبہ خدمت ملے۔",
     },
     {
-      title: isUrdu ? "غیر تصدیق شدہ ملازمین کا خطرہ" : "Unverified Staff Security Risks",
-      desc: isUrdu
-        ? "غیر پیشہ ور یا بغیر تصدیق کے رکھے گئے ملازمین کی جانب سے بدسلوکی یا غفلت کا خدشہ۔"
-        : "Anxiety surrounding untrusted local domestic staff entering the elderly family home without supervision.",
-    },
-  ];
-
-  const overseasPillars = [
-    {
-      step: "01",
-      title: isUrdu ? "وقت کے فرق کے مطابق رابطہ" : "Time-Zone Conscious Communication",
-      desc: isUrdu
-        ? "ہم برطانیہ، مشرقِ وسطیٰ، کینیڈا اور امریکہ کے اوقات کو مدنظر رکھ کر آپ سے رابطہ کرتے ہیں۔"
-        : "Coordinated update channels aligning with your work hours in London, Dubai, Toronto, Riyadh, or New York.",
+      num: "04",
+      icon: CalendarCheck,
+      titleEn: "Arranging Reliable Daily or Live-In Schedules",
+      titleUr: "روزانہ یا 24 گھنٹے لائیو ان شیڈول کا بااعتماد انتظام",
+      descEn: "Whether your parents need a few hours of daytime assistance or 24/7 dedicated live-in care with agreed rest intervals, we organize consistent staffing with prompt backup coverage.",
+      descUr: "چاہے والدین کو دن کے چند گھنٹوں کی رفاقت درکار ہو یا 24 گھنٹے لائیو ان نگہداشت، ہم متبادل عملے کی یقینی فراہمی کے ساتھ بغیر تعطل سروس فراہم کرتے ہیں۔",
     },
     {
-      step: "02",
-      title: isUrdu ? "ہر وزٹ کے بعد تفصیلی واٹس ایپ سمری" : "Transparent Structured WhatsApp Briefs",
-      desc: isUrdu
-        ? "بی پی، شوگر چارٹ، خوراک اور بزرگ کے مزاج کی سمری فیملی گروپ میں باقاعدگی سے شیئر کی جاتی ہے۔"
-        : "Detailed bulleted debriefs after visits: vitals readings, meal intake, sleep quality, and caregiver observations.",
+      num: "05",
+      icon: MessageCircle,
+      titleEn: "Family Communication & Regular Updates",
+      titleUr: "خاندانی رابطہ اور واٹس ایپ پر باقاعدہ اپ ڈیٹس",
+      descEn: "Stay completely informed through structured WhatsApp briefings after visits, vitals logs (BP, blood sugar), meal notes, and facilitated video calls with your parents.",
+      descUr: "ہر وزٹ کے بعد واٹس ایپ پر تفصیلی سمری، بلڈ پریشر و شوگر کا چارٹ، اور ویڈیو کال پر والدین سے بات چیت کے ذریعے آپ ہر لمحہ باخبر رہتے ہیں۔",
     },
     {
-      step: "03",
-      title: isUrdu ? "ماہانہ ادویات اور راشن کی کوآرڈینیشن" : "Prescription & Medical Logistics Support",
-      desc: isUrdu
-        ? "ہم باقاعدگی سے چیک کرتے ہیں کہ والدین کی دوائیاں ختم نہ ہوں اور مستند فارمیسی سے منگوائی جائیں۔"
-        : "Auditing medication boxes and coordinating safe pharmacy refills so vital prescriptions never run out.",
+      num: "06",
+      icon: Activity,
+      titleEn: "Ongoing Coordination & Schedule Adjustments",
+      titleUr: "مسلسل کوآرڈینیشن اور ضرورت کے مطابق تبدیلی",
+      descEn: "Health needs change over time. Your dedicated Care Coordinator in Pakistan handles schedule adjustments, prescription restocking, and clinic visit accompaniments effortlessly.",
+      descUr: "صحت کے تقاضے بدلتے رہتے ہیں۔ پاکستان میں موجود آپ کا کوآرڈینیٹر ادویات کی فراہمی، ڈاکٹر کے وزٹ اور شیڈول کی تبدیلی کو آسانی سے منظم کرتا ہے۔",
     },
     {
-      step: "04",
-      title: isUrdu ? "ویڈیو کال پر بات چیت میں تعاون" : "Facilitating Family Video Connections",
-      desc: isUrdu
-        ? "ہمارا نگہداشت کار بزرگوں کو اسمارٹ فون پر ویڈیو کال آن کر کے بچوں اور پوتوں پوتیوں سے بات کرواتا ہے۔"
-        : "Helping tech-hesitant elderly parents answer WhatsApp video calls comfortably to see their grandchildren.",
+      num: "07",
+      icon: Phone,
+      titleEn: "How to Request a Consultation From Abroad",
+      titleUr: "پردیس سے نگہداشت مشاورت شروع کرنے کا طریقہ",
+      descEn: "Connect directly with our care team on WhatsApp or submit our brief care assessment form. We schedule a video consultation aligned with your international time zone.",
+      descUr: "واٹس ایپ پر میسج کریں یا آن لائن فارم پر کریں۔ ہم آپ کے مقامی وقت (ٹائم زون) کے مطابق ویڈیو یا فون کال پر مکمل خاندانی مشاورت منعقد کرتے ہیں۔",
     },
   ];
 
@@ -160,21 +161,21 @@ export default function OverseasFamiliesPage() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
                 {isUrdu ? (
                   <span>
-                    دوریاں ہزاروں میل کی،{" "}
-                    <span className="text-gold-400 font-serif italic">دیکھ بھال ہمیشہ قریب۔</span>
+                    گھر سے دور،{" "}
+                    <span className="text-gold-400 font-serif italic">مگر والدین کی نگہداشت کے قریب۔</span>
                   </span>
                 ) : (
                   <span>
-                    Miles Apart.{" "}
-                    <span className="text-gold-400 font-serif italic">Always Connected</span> Through Care.
+                    Far From Home.{" "}
+                    <span className="text-gold-400 font-serif italic">Close to Their Care.</span>
                   </span>
                 )}
               </h1>
 
               <p className="text-lg sm:text-xl text-cream-200 leading-relaxed font-light">
                 {isUrdu
-                  ? "ہم سمجھتے ہیں کہ پردیس میں رہتے ہوئے والدین کی فکر کس قدر ستاتی ہے۔ مہربان کیئر پاکستان میں آپ کے والدین کے لیے باوقار نگہبان اور آپ کے دل کا سکون ہے۔"
-                  : "We understand the quiet heartache carried by overseas children. When miles separate you from aging parents in Pakistan, Mehrban Care stands as your trusted, compassionate family presence on the ground."}
+                  ? "پردیس میں رہنے کا مطلب والدین کی نگہداشت سے کٹ جانا نہیں ہے۔ انفرادی گھریلو دیکھ بھال اور مستقل خاندانی رابطے کے مخلصانہ طریقہ کار کو جانیے۔"
+                  : "Living abroad shouldn't mean losing touch with the care your parents need. Explore personalized home-care arrangements and family communication options."}
               </p>
 
               <div className="pt-4 flex flex-wrap gap-4">
@@ -225,38 +226,53 @@ export default function OverseasFamiliesPage() {
         </div>
       </section>
 
-      {/* The 4 Anxieties We Relieve */}
+      {/* The 7 Core Concerns We Address for Families Abroad */}
       <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
-            {isUrdu ? "پردیسیوں کی دلی فکر" : "The Burdens You Carry Abroad"}
+            {isUrdu ? "اوورسیز خاندانوں کے 7 بنیادی سوالات" : "7 Essential Concerns We Address for Families Abroad"}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900">
             {isUrdu
-              ? "وہ چار خوف جو ہر اوورسیز پاکستانی کو بے چین رکھتے ہیں"
-              : "The Four Worries We Lift From Your Shoulders"}
+              ? "پردیس سے والدین کی باوقار نگہداشت کے 7 اہم ترین پہلو"
+              : "Bridging the Miles: Our 7-Point Family Reassurance Model"}
           </h2>
+          <p className="text-sm text-navy-600 max-w-2xl mx-auto">
+            {isUrdu
+              ? "فاصلے چاہے کتنے ہی زیادہ کیوں نہ ہوں، ہمارا نگہداشت کا نظام آپ کے والدین کے تحفظ اور آپ کے مکمل ذہنی سکون کو یقینی بناتا ہے۔"
+              : "Every aspect of our coordination is designed to keep you connected, informed, and confident in your parents' daily comfort."}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {overseasConcerns.map((item, idx) => (
-            <div
-              key={idx}
-              className="p-8 rounded-3xl bg-white border border-navy-900/10 shadow-soft-sm hover:border-gold-400/40 transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-gold-50 text-gold-700 flex items-center justify-center mb-6">
-                  <AlertTriangle className="w-6 h-6" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sevenCareConcerns.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className={`p-6 sm:p-7 rounded-3xl bg-white border border-navy-900/10 shadow-soft-sm hover:border-gold-400/50 hover:shadow-soft-md transition-all flex flex-col justify-between ${
+                  idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-gold-50 text-gold-700 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-gold-600" />
+                    </div>
+                    <span className="text-xs font-bold text-gold-600/80 font-serif">
+                      {item.num}
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-navy-900 mb-2.5">
+                    {isUrdu ? item.titleUr : item.titleEn}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-navy-600 leading-relaxed">
+                    {isUrdu ? item.descUr : item.descEn}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-navy-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-navy-600 leading-relaxed">
-                  {item.desc}
-                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
