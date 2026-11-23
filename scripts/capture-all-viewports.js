@@ -19,6 +19,7 @@ const viewports = [
 
 const pages = [
   { name: 'home', url: 'http://localhost:3000' },
+  { name: 'about', url: 'http://localhost:3000/about' },
   { name: 'services', url: 'http://localhost:3000/services' },
   { name: 'daily_care', url: 'http://localhost:3000/services/daily-care' },
   { name: 'care_plans', url: 'http://localhost:3000/care-plans' },
@@ -29,6 +30,7 @@ const pages = [
   { name: 'book_care', url: 'http://localhost:3000/book-care' },
   { name: 'contact', url: 'http://localhost:3000/contact' },
   { name: 'privacy', url: 'http://localhost:3000/privacy' },
+  { name: 'privacy_policy', url: 'http://localhost:3000/privacy-policy' },
 ];
 
 console.log(`Starting visual audit screenshot capture across ${viewports.length} viewports...`);

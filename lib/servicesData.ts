@@ -34,7 +34,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "روزمرہ معمولات و رفاقت",
     titleKey: "service_1_title",
     descKey: "service_1_desc",
-    imageUrl: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1751977979157-133aa5d65420?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Respectful companionship & reading",
       "Mealtime prep & hydration prompts",
@@ -182,7 +182,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "طبی و نرسنگ معاونت",
     titleKey: "service_3_title",
     descKey: "service_3_desc",
-    imageUrl: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Post-hospital discharge support",
       "Medication schedule management",
@@ -255,7 +255,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "طبی و نرسنگ معاونت",
     titleKey: "service_4_title",
     descKey: "service_4_desc",
-    imageUrl: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1758691461513-88a0aef72160?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Digital blood pressure measurement",
       "Glucometer blood sugar recording",
@@ -328,7 +328,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "روزمرہ معمولات و رفاقت",
     titleKey: "service_5_title",
     descKey: "service_5_desc",
-    imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1758612897699-9cdd1a4361de?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Door-to-door clinic accompaniment",
       "Wheelchair handling & transport help",
@@ -401,7 +401,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "طبی و نرسنگ معاونت",
     titleKey: "service_6_title",
     descKey: "service_6_desc",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1774537961583-13d54edf7384?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Coordination with licensed therapists",
       "Daily exercise routine encouragement",
@@ -474,7 +474,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "ہمہ وقتی اور 24 گھنٹے نگہداشت",
     titleKey: "service_7_title",
     descKey: "service_7_desc",
-    imageUrl: "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1761839257647-df30867afd54?auto=format&fit=crop&w=1200&q=85",
     features: [
       "12-hour shifts or 24/7 dedicated live-in",
       "Nighttime wakefulness & restroom safety",
@@ -547,7 +547,7 @@ export const servicesData: DetailedService[] = [
     categoryNameUr: "ہمہ وقتی اور اوورسیز سہولت",
     titleKey: "service_8_title",
     descKey: "service_8_desc",
-    imageUrl: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1758686254457-6aaca1ca78e0?auto=format&fit=crop&w=1200&q=85",
     features: [
       "Direct WhatsApp updates & call summaries",
       "Video call coordination for parents",

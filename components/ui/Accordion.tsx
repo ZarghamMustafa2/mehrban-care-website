@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export interface AccordionItem {
   id: string;
@@ -18,6 +19,7 @@ interface AccordionProps {
 
 export function Accordion({ items, allowMultiple = false, className = "" }: AccordionProps) {
   const [openIds, setOpenIds] = useState<string[]>([items[0]?.id || ""]);
+  const shouldReduceMotion = useReducedMotion();
 
   const toggle = (id: string) => {
     if (allowMultiple) {
@@ -36,7 +38,7 @@ export function Accordion({ items, allowMultiple = false, className = "" }: Acco
         return (
           <div
             key={item.id}
-            className={`rounded-2xl transition-all duration-200 border ${
+            className={`rounded-2xl transition-all duration-200 border overflow-hidden ${
               isOpen
                 ? "bg-white border-gold-400/40 shadow-soft-md"
                 : "bg-white/80 border-navy-900/5 hover:border-gold-400/20 hover:bg-white"
@@ -60,11 +62,37 @@ export function Accordion({ items, allowMultiple = false, className = "" }: Acco
               </div>
             </button>
 
-            {isOpen && (
-              <div className="px-6 pb-5 pt-1 text-navy-700 text-sm md:text-base leading-relaxed border-t border-gray-100/80 mt-1 animate-fadeIn">
-                <p>{item.answer}</p>
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={
+                    shouldReduceMotion
+                      ? { opacity: 0 }
+                      : { height: 0, opacity: 0 }
+                  }
+                  animate={
+                    shouldReduceMotion
+                      ? { opacity: 1 }
+                      : { height: "auto", opacity: 1 }
+                  }
+                  exit={
+                    shouldReduceMotion
+                      ? { opacity: 0 }
+                      : { height: 0, opacity: 0 }
+                  }
+                  transition={{
+                    duration: shouldReduceMotion ? 0.05 : 0.28,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-5 pt-1 text-navy-700 text-sm md:text-base leading-relaxed border-t border-gray-100/80 mt-1">
+                    <p>{item.answer}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         );
       })}

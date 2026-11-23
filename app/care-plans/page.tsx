@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   Sparkles,
   Check,
@@ -115,7 +116,7 @@ export default function CarePlansPage() {
       {/* Header */}
       <section className="py-16 lg:py-20 bg-white border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
+          <FadeIn className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-gold-600" />
               <span>{isUrdu ? "منصوبے اور نرخ" : "Care Plans & Transparent Quoting"}</span>
@@ -130,15 +131,15 @@ export default function CarePlansPage() {
                 ? "ہم کوئی غیر لچکدار یا خود ساختہ پیکجز مسلط نہیں کرتے۔ فیس کا تعین بزرگ کی مطلوبہ ضروریات، شہر اور اوقات کے مطابق شفاف انداز میں کوٹ کیا جاتا ہے۔"
                 : "We do not enforce rigid, one-size-fits-all fees. All service scopes are custom-quoted according to city, skill level, and schedule without hidden costs."}
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* 3 Core Tier Highlights */}
       <section className="py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Plan 1 */}
-          <div className="rounded-3xl bg-white p-8 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between">
+          <StaggerItem className="rounded-3xl bg-white p-8 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between hover:shadow-soft-md transition-shadow">
             <div className="space-y-4">
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-navy-50 text-navy-800 uppercase tracking-wider">
                 {isUrdu ? "مرحلہ وار سپورٹ" : "Daytime Check-in"}
@@ -163,10 +164,10 @@ export default function CarePlansPage() {
                 <ArrowIcon className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Plan 2: Featured */}
-          <div className="rounded-3xl bg-navy-900 text-white p-8 border-2 border-gold-400 shadow-soft-xl flex flex-col justify-between relative lg:-translate-y-2">
+          <StaggerItem className="rounded-3xl bg-navy-900 text-white p-8 border-2 border-gold-400 shadow-soft-xl flex flex-col justify-between relative lg:-translate-y-2">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gold-400 text-navy-900 text-xs font-black uppercase tracking-wider shadow">
               {isUrdu ? "سب سے زیادہ منتخب کردہ" : "Most Recommended"}
             </div>
@@ -194,10 +195,10 @@ export default function CarePlansPage() {
                 <ArrowIcon className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Plan 3 */}
-          <div className="rounded-3xl bg-white p-8 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between">
+          <StaggerItem className="rounded-3xl bg-white p-8 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between hover:shadow-soft-md transition-shadow">
             <div className="space-y-4">
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-navy-50 text-navy-800 uppercase tracking-wider">
                 {isUrdu ? "چوبیس گھنٹے رفاقت" : "24/7 Dedicated Support"}
@@ -222,8 +223,8 @@ export default function CarePlansPage() {
                 <ArrowIcon className="w-4 h-4" />
               </Link>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </section>
 
       {/* Feature By Feature Comparison Matrix */}

@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/book-care",
     "/privacy",
+    "/privacy-policy",
   ];
 
   return routes.map((route) => ({

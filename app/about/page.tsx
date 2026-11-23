@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { FadeIn, ImageReveal, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   Heart,
   ShieldCheck,
@@ -89,7 +90,7 @@ export default function AboutPage() {
       {/* Editorial Page Header */}
       <section className="relative py-16 lg:py-24 bg-white border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
+          <FadeIn className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-gold-600" />
               <span>{isUrdu ? "ہمارے بارے میں" : "About Mehrban Care"}</span>
@@ -104,7 +105,7 @@ export default function AboutPage() {
                 ? "مہربان کیئر کا قیام اس احساس کے ساتھ عمل میں لایا گیا کہ ہمارے بزرگ اپنے ہی گھر کے سکون میں باوقار، محفوظ اور بااعتماد نگہداشت کے مستحق ہیں۔"
                 : "Mehrban Care was established to ensure Pakistani seniors receive the highest international standard of compassionate, respectful in-home support while keeping families connected."}
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -112,46 +113,50 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Mission */}
-          <div className="rounded-3xl bg-navy-900 text-white p-8 sm:p-12 border border-navy-800 shadow-soft-lg flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-gold-400/20 border border-gold-400 text-gold-400 flex items-center justify-center">
-                <Target className="w-6 h-6" />
+          <FadeIn delay={0.1}>
+            <div className="rounded-3xl bg-navy-900 text-white p-8 sm:p-12 border border-navy-800 shadow-soft-lg flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-gold-400/20 border border-gold-400 text-gold-400 flex items-center justify-center">
+                  <Target className="w-6 h-6" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  {isUrdu ? "ہمارا مشن (Our Mission)" : "Our Mission"}
+                </h2>
+                <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
+                  {isUrdu
+                    ? "ہمارا مشن بزرگوں کو ان کے اپنے مانوس گھر کے آرام میں محفوظ، ہمدردانہ اور باوقار نگہداشت فراہم کرنا ہے۔ ہم خاندانوں اور خصوصاً پردیس میں مقیم بیٹوں اور بیٹیوں کو مکمل ذہنی اطمینان بخشتے ہیں کہ ان کے والدین کے روزمرہ معمولات اور صحت کا خیال ایک سچے خاندان کی طرح رکھا جا رہا ہے۔"
+                    : "To provide compassionate, safe, dignified, and dependable elderly care services in the comfort of the client's own home, relieving families from worry and empowering seniors to thrive with autonomy."}
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-                {isUrdu ? "ہمارا مشن (Our Mission)" : "Our Mission"}
-              </h2>
-              <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
-                {isUrdu
-                  ? "ہمارا مشن بزرگوں کو ان کے اپنے مانوس گھر کے آرام میں محفوظ، ہمدردانہ اور باوقار نگہداشت فراہم کرنا ہے۔ ہم خاندانوں اور خصوصاً پردیس میں مقیم بیٹوں اور بیٹیوں کو مکمل ذہنی اطمینان بخشتے ہیں کہ ان کے والدین کے روزمرہ معمولات اور صحت کا خیال ایک سچے خاندان کی طرح رکھا جا رہا ہے۔"
-                  : "To provide compassionate, safe, dignified, and dependable elderly care services in the comfort of the client's own home, relieving families from worry and empowering seniors to thrive with autonomy."}
-              </p>
+              <div className="pt-6 border-t border-navy-800 flex items-center gap-2 text-xs text-gold-300">
+                <CheckCircle2 className="w-4 h-4 text-gold-400" />
+                <span>{isUrdu ? "ہر عمل میں بزرگ کا احترام اولیت" : "Senior dignity above all"}</span>
+              </div>
             </div>
-            <div className="pt-6 border-t border-navy-800 flex items-center gap-2 text-xs text-gold-300">
-              <CheckCircle2 className="w-4 h-4 text-gold-400" />
-              <span>{isUrdu ? "ہر عمل میں بزرگ کا احترام اولیت" : "Senior dignity above all"}</span>
-            </div>
-          </div>
+          </FadeIn>
 
           {/* Vision */}
-          <div className="rounded-3xl bg-white p-8 sm:p-12 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center">
-                <Eye className="w-6 h-6" />
+          <FadeIn delay={0.2}>
+            <div className="rounded-3xl bg-white p-8 sm:p-12 border border-navy-900/10 shadow-soft-sm flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center">
+                  <Eye className="w-6 h-6" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-900">
+                  {isUrdu ? "ہمارا وژن (Our Vision)" : "Our Vision"}
+                </h2>
+                <p className="text-navy-700 text-sm sm:text-base leading-relaxed">
+                  {isUrdu
+                    ? "پاکستان میں بزرگوں کی گھریلو دیکھ بھال کا سب سے معتبر اور قابل فخر ادارہ بننا، جو اخلاقیات، شفافیت اور پیشہ ورانہ مہارت کے بین الاقوامی معیار قائم کرے اور بزرگ شہریوں کی خدمت کو ایک مقدس فریضہ سمجھے۔"
+                    : "To become Pakistan's most trusted elderly home care organization—recognized internationally for excellence in caregiver ethics, empathetic family communication, and senior advocacy."}
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-900">
-                {isUrdu ? "ہمارا وژن (Our Vision)" : "Our Vision"}
-              </h2>
-              <p className="text-navy-700 text-sm sm:text-base leading-relaxed">
-                {isUrdu
-                  ? "پاکستان میں بزرگوں کی گھریلو دیکھ بھال کا سب سے معتبر اور قابل فخر ادارہ بننا، جو اخلاقیات، شفافیت اور پیشہ ورانہ مہارت کے بین الاقوامی معیار قائم کرے اور بزرگ شہریوں کی خدمت کو ایک مقدس فریضہ سمجھے۔"
-                  : "To become Pakistan's most trusted elderly home care organization—recognized internationally for excellence in caregiver ethics, empathetic family communication, and senior advocacy."}
-              </p>
+              <div className="pt-6 border-t border-gray-100 flex items-center gap-2 text-xs text-sage-700 font-semibold">
+                <CheckCircle2 className="w-4 h-4 text-sage-600" />
+                <span>{isUrdu ? "بین الاقوامی معیار پر مبنی گھریلو سروس" : "Setting benchmark care standards in Pakistan"}</span>
+              </div>
             </div>
-            <div className="pt-6 border-t border-gray-100 flex items-center gap-2 text-xs text-sage-700 font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-sage-600" />
-              <span>{isUrdu ? "بین الاقوامی معیار پر مبنی گھریلو سروس" : "Setting benchmark care standards in Pakistan"}</span>
-            </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -161,31 +166,33 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Visual Photographic Frame (5 cols) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-gold-300 via-sage-300 to-navy-200 opacity-50 blur-lg transform -rotate-1 pointer-events-none" />
-                <div className="relative rounded-[2.2rem] overflow-hidden bg-navy-950 shadow-soft-xl border-4 border-white aspect-[4/5]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=85"
-                    alt="Elderly Pakistani parent and dedicated caregiver sharing a warm, respectful conversation at home"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/20 to-transparent" />
-                  
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/50 text-navy-900 shadow-soft-md">
-                    <p className="text-xs font-bold text-navy-900 flex items-center gap-1.5 mb-1">
-                      <Heart className="w-4 h-4 text-gold-600 fill-gold-400" />
-                      <span>{isUrdu ? "بزرگوں کی خدمت، ایک مقدس فریضہ" : "Elder Care as a Sacred Honor"}</span>
-                    </p>
-                    <p className="text-[11px] text-navy-600 leading-snug">
-                      {isUrdu
-                        ? "ہمارے بزرگ ہمارے گھروں کی برکت اور پہچان ہیں۔ ان کا احترام ہر خدمت کی بنیاد ہے۔"
-                        : "Preserving comfort, prayer routines, and family honor within the senior's own domestic sanctuary."}
-                    </p>
+              <ImageReveal>
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-gold-300 via-sage-300 to-navy-200 opacity-50 blur-lg transform -rotate-1 pointer-events-none" />
+                  <div className="relative rounded-[2.2rem] overflow-hidden bg-navy-950 shadow-soft-xl border-4 border-white aspect-[4/5] group">
+                    <Image
+                      src="https://images.unsplash.com/photo-1751977979157-133aa5d65420?auto=format&fit=crop&w=1200&q=85"
+                      alt="Elderly Pakistani parent and dedicated caregiver sharing a warm, respectful conversation at home"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/20 to-transparent" />
+                    
+                    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/50 text-navy-900 shadow-soft-md">
+                      <p className="text-xs font-bold text-navy-900 flex items-center gap-1.5 mb-1">
+                        <Heart className="w-4 h-4 text-gold-600 fill-gold-400" />
+                        <span>{isUrdu ? "بزرگوں کی خدمت، ایک مقدس فریضہ" : "Elder Care as a Sacred Honor"}</span>
+                      </p>
+                      <p className="text-[11px] text-navy-600 leading-snug">
+                        {isUrdu
+                          ? "ہمارے بزرگ ہمارے گھروں کی برکت اور پہچان ہیں۔ ان کا احترام ہر خدمت کی بنیاد ہے۔"
+                          : "Preserving comfort, prayer routines, and family honor within the senior's own domestic sanctuary."}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ImageReveal>
             </div>
 
             {/* Editorial Storytelling (7 cols) */}

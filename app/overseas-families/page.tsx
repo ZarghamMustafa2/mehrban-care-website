@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { FadeIn, ImageReveal, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   Globe2,
   Heart,
@@ -152,7 +153,7 @@ export default function OverseasFamiliesPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
+            <FadeIn className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold uppercase tracking-wider border border-gold-400/30">
                 <Globe2 className="w-4 h-4" />
                 <span>{isUrdu ? "پردیس میں مقیم پاکستانیوں کے لیے" : "Specialized Care for Overseas Pakistanis"}</span>
@@ -181,7 +182,7 @@ export default function OverseasFamiliesPage() {
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
                   href="/book-care?plan=overseas"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gold-400 text-navy-900 font-bold text-sm shadow-soft-md hover:bg-gold-500 transition-colors"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gold-400 text-navy-900 font-bold text-sm shadow-soft-md hover:bg-gold-500 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   <CalendarCheck className="w-4 h-4 text-navy-900" />
                   <span>{isUrdu ? "والدین کی دیکھ بھال پر بات چیت کریں" : "Discuss Care for Your Parents"}</span>
@@ -190,37 +191,39 @@ export default function OverseasFamiliesPage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-cream-200/30 text-cream-100 font-semibold text-sm hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-cream-200/30 text-cream-100 font-semibold text-sm hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   <Phone className="w-4 h-4 text-gold-400" />
                   <span>{isUrdu ? "واٹس ایپ پر مشاورت کریں" : "Consult via WhatsApp"}</span>
                 </Link>
               </div>
-            </div>
+            </FadeIn>
 
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/40 aspect-[4/5] bg-navy-950">
-                <Image
-                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=85"
-                  alt="An overseas Pakistani adult talking to elderly parent through a warm video call"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
+              <ImageReveal>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/40 aspect-[4/5] bg-navy-950 group">
+                  <Image
+                    src="https://images.unsplash.com/photo-1758686254457-6aaca1ca78e0?auto=format&fit=crop&w=1200&q=85"
+                    alt="An overseas Pakistani adult talking to elderly parent through a warm video call"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-navy-900/90 backdrop-blur-md border border-gold-400/40">
-                  <p className="text-xs font-bold text-gold-400 mb-1">
-                    {isUrdu ? "فاصلے کبھی فکر کی وجہ نہ بنیں" : "Distance Should Never Mean Worry"}
-                  </p>
-                  <p className="text-[11px] text-cream-200">
-                    {isUrdu
-                      ? "ہم آپ کے والدین کو وہی محبت اور ادب فراہم کرتے ہیں جس کی وہ آپ سے امید رکھتے ہیں۔"
-                      : "Preserving your parents' domestic dignity and your peace of mind around the clock."}
-                  </p>
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-navy-900/90 backdrop-blur-md border border-gold-400/40">
+                    <p className="text-xs font-bold text-gold-400 mb-1">
+                      {isUrdu ? "فاصلے کبھی فکر کی وجہ نہ بنیں" : "Distance Should Never Mean Worry"}
+                    </p>
+                    <p className="text-[11px] text-cream-200">
+                      {isUrdu
+                        ? "ہم آپ کے والدین کو وہی محبت اور ادب فراہم کرتے ہیں جس کی وہ آپ سے امید رکھتے ہیں۔"
+                        : "Preserving your parents' domestic dignity and your peace of mind around the clock."}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </ImageReveal>
             </div>
           </div>
         </div>

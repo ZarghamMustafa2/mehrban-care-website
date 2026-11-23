@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { servicesData, DetailedService } from "@/lib/servicesData";
+import { FadeIn, ImageReveal } from "@/components/motion/MotionWrapper";
 import {
   Sparkles,
   CheckCircle2,
@@ -96,11 +97,11 @@ export default function ServicesPage() {
           const title = t(service.titleKey as any);
 
           return (
-            <div
-              id={service.slug}
-              key={service.id}
-              className="scroll-mt-28 rounded-3xl bg-white border border-navy-900/10 shadow-soft-sm overflow-hidden hover:shadow-soft-md transition-shadow"
-            >
+            <FadeIn key={service.id} delay={0.05}>
+              <div
+                id={service.slug}
+                className="scroll-mt-28 rounded-3xl bg-white border border-navy-900/10 shadow-soft-sm overflow-hidden hover:shadow-soft-md transition-shadow"
+              >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
                 {/* Visual Image Banner (Col 1 to 5) */}
                 <div
@@ -204,7 +205,8 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-          );
+          </FadeIn>
+        );
         })}
       </section>
 

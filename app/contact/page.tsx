@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CareBookingForm } from "@/components/forms/CareBookingForm";
 import { businessConfig, getWhatsAppInquiryUrl } from "@/lib/config/business";
+import { FadeIn } from "@/components/motion/MotionWrapper";
 import {
   Phone,
   Mail,
@@ -24,7 +25,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="py-16 lg:py-20 bg-white border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
+          <FadeIn className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-gold-600" />
               <span>{isUrdu ? "رابطہ اور رہنمائی" : "Contact & Consultations"}</span>
@@ -39,7 +40,7 @@ export default function ContactPage() {
                 ? "چاہے آپ پاکستان میں ہوں یا بیرون ملک، ہم آپ کے بزرگ کے لیے بہترین نگہداشت کے انتخاب میں رہنمائی کے لیے حاضر ہیں۔"
                 : "Whether you reside in Pakistan or coordinate care from abroad, our advisory team is here to listen to your family's needs."}
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

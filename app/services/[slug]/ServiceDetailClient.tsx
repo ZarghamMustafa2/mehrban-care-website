@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { DetailedService } from "@/lib/servicesData";
+import { FadeIn, ImageReveal } from "@/components/motion/MotionWrapper";
 import {
   ChevronRight,
   ChevronLeft,
@@ -69,7 +70,7 @@ export function ServiceDetailClient({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Hero Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <FadeIn className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-gold-600" />
                 <span>{categoryName}</span>
@@ -114,27 +115,28 @@ export function ServiceDetailClient({
                   <span>{isUrdu ? "ہم جنس کیئر گیور کی دستیابی" : "Same-Gender Matching"}</span>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Hero Right Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft-xl border-4 border-white aspect-[4/3] bg-navy-900">
-                <Image
-                  src={service.imageUrl}
-                  alt={title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-navy-900/90 text-gold-300 border border-white/10 backdrop-blur-sm">
-                    {isUrdu ? "مہربان کیئر پروٹوکول" : "Mehrban Care In-Home Protocol"}
-                  </span>
+              <ImageReveal>
+                <div className="relative rounded-3xl overflow-hidden shadow-soft-xl border-4 border-white aspect-[4/3] bg-navy-900 group">
+                  <Image
+                    src={service.imageUrl}
+                    alt={title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-white">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-navy-900/90 text-gold-300 border border-white/10 backdrop-blur-sm">
+                      {isUrdu ? "مہربان کیئر پروٹوکول" : "Mehrban Care In-Home Protocol"}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </ImageReveal>
             </div>
           </div>
         </div>

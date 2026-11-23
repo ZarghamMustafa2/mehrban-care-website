@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { Logo } from "@/components/brand/Logo";
 import { businessConfig } from "@/lib/config/business";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
@@ -163,53 +164,61 @@ export function Navbar() {
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${desktopServicesOpen ? "rotate-180 text-gold-600" : "text-navy-400"}`} />
                       </Link>
 
-                      {/* Dropdown Menu */}
-                      {desktopServicesOpen && (
-                        <div className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-1 w-[480px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-soft-xl border border-navy-900/10 p-4 z-50 animate-fadeIn">
-                          <div className="px-3 pb-2 mb-2 border-b border-gray-100 flex items-center justify-between">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-navy-400">
-                              {isUrdu ? "گھریلو دیکھ بھال کی خدمات" : "Specialized In-Home Care Services"}
-                            </span>
-                            <span className="text-[10px] text-gold-600 font-semibold">
-                              {isUrdu ? "8 اہم شعبہ جات" : "8 Key Offerings"}
-                            </span>
-                          </div>
+                      {/* Animated Dropdown Menu */}
+                      <AnimatePresence>
+                        {desktopServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                            transition={{ duration: 0.18, ease: "easeOut" }}
+                            className="absolute top-full left-0 rtl:left-auto rtl:right-0 mt-1 w-[480px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-soft-xl border border-navy-900/10 p-4 z-50"
+                          >
+                            <div className="px-3 pb-2 mb-2 border-b border-gray-100 flex items-center justify-between">
+                              <span className="text-[11px] font-bold uppercase tracking-wider text-navy-400">
+                                {isUrdu ? "گھریلو دیکھ بھال کی خدمات" : "Specialized In-Home Care Services"}
+                              </span>
+                              <span className="text-[10px] text-gold-600 font-semibold">
+                                {isUrdu ? "8 اہم شعبہ جات" : "8 Key Offerings"}
+                              </span>
+                            </div>
 
-                          <div className="grid grid-cols-2 gap-2">
-                            {serviceItems.map((s) => (
+                            <div className="grid grid-cols-2 gap-2">
+                              {serviceItems.map((s) => (
+                                <Link
+                                  key={s.slug}
+                                  href={`/services/${s.slug}`}
+                                  className="p-2.5 rounded-xl hover:bg-gold-50/70 border border-transparent hover:border-gold-300/40 transition-all text-left rtl:text-right group flex items-start gap-2"
+                                >
+                                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-navy-100 text-navy-800 uppercase mt-0.5 group-hover:bg-navy-900 group-hover:text-gold-300 transition-colors">
+                                    {s.badge}
+                                  </span>
+                                  <div className="space-y-0.5">
+                                    <h4 className="text-xs font-bold text-navy-900 group-hover:text-gold-700 transition-colors leading-tight">
+                                      {isUrdu ? s.titleUr : s.titleEn}
+                                    </h4>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+
+                            <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
                               <Link
-                                key={s.slug}
-                                href={`/services/${s.slug}`}
-                                className="p-2.5 rounded-xl hover:bg-gold-50/70 border border-transparent hover:border-gold-300/40 transition-all text-left rtl:text-right group flex items-start gap-2"
+                                href="/services"
+                                className="font-bold text-navy-900 hover:text-gold-600 transition-colors"
                               >
-                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-navy-100 text-navy-800 uppercase mt-0.5 group-hover:bg-navy-900 group-hover:text-gold-300 transition-colors">
-                                  {s.badge}
-                                </span>
-                                <div className="space-y-0.5">
-                                  <h4 className="text-xs font-bold text-navy-900 group-hover:text-gold-700 transition-colors leading-tight">
-                                    {isUrdu ? s.titleUr : s.titleEn}
-                                  </h4>
-                                </div>
+                                {isUrdu ? "تمام 8 خدمات کی تفصیلی فہرست دیکھیں ←" : "Browse Full Services Directory →"}
                               </Link>
-                            ))}
-                          </div>
-
-                          <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
-                            <Link
-                              href="/services"
-                              className="font-bold text-navy-900 hover:text-gold-600 transition-colors"
-                            >
-                              {isUrdu ? "تمام 8 خدمات کی تفصیلی فہرست دیکھیں ←" : "Browse Full Services Directory →"}
-                            </Link>
-                            <Link
-                              href="/book-care"
-                              className="text-[11px] font-semibold text-gold-600 hover:text-navy-900 transition-colors"
-                            >
-                              {isUrdu ? "جائزہ بک کریں" : "Book Assessment"}
-                            </Link>
-                          </div>
-                        </div>
-                      )}
+                              <Link
+                                href="/book-care"
+                                className="text-[11px] font-semibold text-gold-600 hover:text-navy-900 transition-colors"
+                              >
+                                {isUrdu ? "جائزہ بک کریں" : "Book Assessment"}
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   );
                 }
@@ -259,120 +268,128 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="xl:hidden fixed inset-x-0 top-[calc(100%+1px)] bottom-0 bg-white/95 backdrop-blur-xl border-t border-navy-900/10 z-40 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between">
-            <div className="space-y-1">
-              <div className="pb-3 mb-3 border-b border-gray-100 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider font-bold text-navy-400">
-                  {isUrdu ? "مینیو روابط" : "Navigation"}
-                </span>
-                {/* Language Switcher in Mobile Drawer */}
-                <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-lg">
-                  <button
-                    onClick={() => setLanguage("en")}
-                    className={`px-3 py-1 rounded text-xs font-semibold ${
-                      lang === "en" ? "bg-navy-900 text-white" : "text-navy-700"
-                    }`}
-                  >
-                    English
-                  </button>
-                  <button
-                    onClick={() => setLanguage("ur")}
-                    className={`px-3 py-1 rounded text-xs font-semibold font-urdu ${
-                      lang === "ur" ? "bg-navy-900 text-white" : "text-navy-700"
-                    }`}
-                  >
-                    اردو
-                  </button>
+        {/* Mobile Navigation Drawer with Smooth Animation */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="xl:hidden fixed inset-x-0 top-[calc(100%+1px)] bottom-0 bg-white/95 backdrop-blur-xl border-t border-navy-900/10 z-40 overflow-y-auto px-6 py-6 shadow-2xl flex flex-col justify-between"
+            >
+              <div className="space-y-1">
+                <div className="pb-3 mb-3 border-b border-gray-100 flex items-center justify-between">
+                  <span className="text-xs uppercase tracking-wider font-bold text-navy-400">
+                    {isUrdu ? "مینیو روابط" : "Navigation"}
+                  </span>
+                  {/* Language Switcher in Mobile Drawer */}
+                  <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-lg">
+                    <button
+                      onClick={() => setLanguage("en")}
+                      className={`px-3 py-1 rounded text-xs font-semibold ${
+                        lang === "en" ? "bg-navy-900 text-white" : "text-navy-700"
+                      }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => setLanguage("ur")}
+                      className={`px-3 py-1 rounded text-xs font-semibold font-urdu ${
+                        lang === "ur" ? "bg-navy-900 text-white" : "text-navy-700"
+                      }`}
+                    >
+                      اردو
+                    </button>
+                  </div>
                 </div>
+
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href || (link.isServices && pathname.startsWith("/services"));
+
+                  if (link.isServices) {
+                    return (
+                      <div key={link.href} className="space-y-1">
+                        <div className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all text-navy-900 hover:bg-gold-50">
+                          <Link href="/services" className="flex-1">
+                            {link.label}
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                            className="p-1.5 rounded-lg text-navy-600 hover:bg-navy-100"
+                            aria-label={mobileServicesOpen ? "Close services list" : "Open services list"}
+                          >
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform duration-200 ${
+                                mobileServicesOpen ? "rotate-180 text-gold-600" : ""
+                              }`}
+                            />
+                          </button>
+                        </div>
+
+                        {/* Expandable Mobile Services Submenu */}
+                        {mobileServicesOpen && (
+                          <div className="pl-4 rtl:pl-0 rtl:pr-4 py-1 space-y-1 border-l-2 rtl:border-l-0 rtl:border-r-2 border-gold-300 ml-4 rtl:ml-0 rtl:mr-4">
+                            {serviceItems.map((s) => (
+                              <Link
+                                key={s.slug}
+                                href={`/services/${s.slug}`}
+                                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-navy-800 hover:bg-gold-50/60"
+                              >
+                                <span>{isUrdu ? s.titleUr : s.titleEn}</span>
+                                <span className="text-[10px] text-gold-600 font-bold">{s.badge}</span>
+                              </Link>
+                            ))}
+                            <Link
+                              href="/services"
+                              className="block px-3 py-1.5 text-xs font-bold text-gold-600 hover:text-navy-900"
+                            >
+                              {isUrdu ? "تمام 8 خدمات دیکھیں ←" : "View All Services →"}
+                            </Link>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all ${
+                        isActive
+                          ? "bg-navy-900 text-white shadow-sm"
+                          : "text-navy-900 hover:bg-gold-50"
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      <ArrowIcon className="w-4 h-4 opacity-70" />
+                    </Link>
+                  );
+                })}
               </div>
 
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href || (link.isServices && pathname.startsWith("/services"));
-
-                if (link.isServices) {
-                  return (
-                    <div key={link.href} className="space-y-1">
-                      <div className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all text-navy-900 hover:bg-gold-50">
-                        <Link href="/services" className="flex-1">
-                          {link.label}
-                        </Link>
-                        <button
-                          type="button"
-                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className="p-1.5 rounded-lg text-navy-600 hover:bg-navy-100"
-                          aria-label={mobileServicesOpen ? "Close services list" : "Open services list"}
-                        >
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              mobileServicesOpen ? "rotate-180 text-gold-600" : ""
-                            }`}
-                          />
-                        </button>
-                      </div>
-
-                      {/* Expandable Mobile Services Submenu */}
-                      {mobileServicesOpen && (
-                        <div className="pl-4 rtl:pl-0 rtl:pr-4 py-1 space-y-1 border-l-2 rtl:border-l-0 rtl:border-r-2 border-gold-300 ml-4 rtl:ml-0 rtl:mr-4">
-                          {serviceItems.map((s) => (
-                            <Link
-                              key={s.slug}
-                              href={`/services/${s.slug}`}
-                              className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-navy-800 hover:bg-gold-50/60"
-                            >
-                              <span>{isUrdu ? s.titleUr : s.titleEn}</span>
-                              <span className="text-[10px] text-gold-600 font-bold">{s.badge}</span>
-                            </Link>
-                          ))}
-                          <Link
-                            href="/services"
-                            className="block px-3 py-1.5 text-xs font-bold text-gold-600 hover:text-navy-900"
-                          >
-                            {isUrdu ? "تمام 8 خدمات دیکھیں ←" : "View All Services →"}
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all ${
-                      isActive
-                        ? "bg-navy-900 text-white shadow-sm"
-                        : "text-navy-900 hover:bg-gold-50"
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    <ArrowIcon className="w-4 h-4 opacity-70" />
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Bottom Mobile Drawer CTA */}
-            <div className="pt-6 mt-6 border-t border-gray-100 space-y-3">
-              <Link
-                href="/book-care"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gold-400 text-navy-900 font-bold text-center shadow-soft-md hover:bg-gold-500 transition-colors"
-              >
-                <CalendarCheck className="w-5 h-5" />
-                <span>{t("nav_book_care")}</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-navy-900/15 text-navy-900 font-semibold text-center hover:bg-navy-50 transition-colors text-sm"
-              >
-                <Phone className="w-4 h-4 text-navy-700" />
-                <span>{isUrdu ? "کیئر ایڈوائزر سے رابطہ" : "Contact Care Advisors"}</span>
-              </Link>
-            </div>
-          </div>
-        )}
+              {/* Bottom Mobile Drawer CTA */}
+              <div className="pt-6 mt-6 border-t border-gray-100 space-y-3">
+                <Link
+                  href="/book-care"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gold-400 text-navy-900 font-bold text-center shadow-soft-md hover:bg-gold-500 transition-colors"
+                >
+                  <CalendarCheck className="w-5 h-5" />
+                  <span>{t("nav_book_care")}</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-navy-900/15 text-navy-900 font-semibold text-center hover:bg-navy-50 transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 text-navy-700" />
+                  <span>{isUrdu ? "کیئر ایڈوائزر سے رابطہ" : "Contact Care Advisors"}</span>
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );

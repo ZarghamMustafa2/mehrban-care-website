@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
+import { FadeIn } from "@/components/motion/MotionWrapper";
 import {
   HelpCircle,
   Sparkles,
@@ -199,7 +200,7 @@ export default function FaqPage() {
       {/* Header */}
       <section className="py-16 lg:py-20 bg-white border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
+          <FadeIn className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
               <HelpCircle className="w-3.5 h-3.5 text-gold-600" />
               <span>{isUrdu ? "عمومی سوالات" : "Knowledge & Questions"}</span>
@@ -214,7 +215,7 @@ export default function FaqPage() {
                 ? "ہم اپنے طریقہ کار، حفاظت اور خدمات کے تمام پہلوؤں میں مکمل شفافیت پر یقین رکھتے ہیں۔"
                 : "Find transparent answers regarding care requests, male and female caregiver vetting, scheduling, health logging, and overseas family communications."}
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

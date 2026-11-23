@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   Briefcase,
   UserCheck,
@@ -241,7 +242,7 @@ export default function CareersPage() {
       {/* Header */}
       <section className="py-16 lg:py-20 bg-white border-b border-navy-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
+          <FadeIn className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 border border-gold-200 text-gold-700 text-xs font-bold uppercase tracking-wider">
               <Briefcase className="w-3.5 h-3.5 text-gold-600" />
               <span>{isUrdu ? "مہربان کیئر کیریئرز" : "Join Our Compassionate Team"}</span>
@@ -256,7 +257,7 @@ export default function CareersPage() {
                 ? "مہربان کیئر میں ہم ایسے مخلص، دیانت دار اور بااخلاق مرد و خواتین کی تلاش میں ہیں جو بزرگوں کی خدمت کو محض نوکری نہیں بلکہ ثواب اور عزت کا ذریعہ سمجھتے ہیں۔"
                 : "At Mehrban Care, we offer respectful employment for certified nurses, trained caregivers, and supportive attendants who uphold senior dignity and exemplary work ethics."}
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -339,11 +340,11 @@ export default function CareersPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredJobs.map((job) => (
-            <div
+            <StaggerItem
               key={job.id}
-              className="bg-white rounded-3xl p-8 border border-navy-900/10 shadow-soft-sm hover:shadow-soft-md hover:border-gold-400/40 transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 border border-navy-900/10 shadow-soft-sm hover:shadow-soft-md hover:border-gold-400/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -402,9 +403,9 @@ export default function CareersPage() {
                   <span>{isUrdu ? "درخواست دیں" : "Apply Now"}</span>
                 </button>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* POSITION DETAILS MODAL / DRAWER */}

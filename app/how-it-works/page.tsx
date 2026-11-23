@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion/MotionWrapper";
 import {
   FileText,
   PhoneCall,
